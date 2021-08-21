@@ -163,7 +163,7 @@ print.spacejamr <- function(x, ...) {
 }
 
 
-#' Print a summary of a spacejamr instance
+#' Print summary information of a spacejamr instance
 #'
 #' @description Summary method for the spacejamr class
 #'

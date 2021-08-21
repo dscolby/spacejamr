@@ -19,7 +19,7 @@ spacejamr, PointSim, and NetSim. They create new objects used in subsuquent
 steps of network simulation, simulate spatial point processes, and create
 network objects
 
-Creates a new spacejamr object
+Creates a new spacejamr object that for further analysis
 }
 \details{
 The returned spacejamr object will contain a window object

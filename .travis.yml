@@ -3,7 +3,11 @@
 language: R
 cache: packages
 
-addons:
-  apt:
-    packages:
-      - libgit2-dev
+TRAVIS_R_VERSION=3.2.4
+
+install:
+    - R -e 'install.packages("leafem")'
+    - R -e 'install.packages("leafpop")'
+    - R -e 'install.packages("sf")'
+    - R -e 'install.packages("units")'
+    - R -e 'install.packages("mapview")'

@@ -9,7 +9,7 @@ PointProcess(points, window, seed)
 \arguments{
 \item{points}{the number of points to simulate}
 
-\item{window}{a window object of class spacejamr to use as the spatial extent}
+\item{window}{a spacejamr object to use as the spatial extent}
 
 \item{seed}{an optional seed}
 }
