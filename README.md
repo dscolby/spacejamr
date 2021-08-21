@@ -20,7 +20,7 @@ install.packages("spacejamr")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Simulate a Poisson point process and use it to generate a power law network:
 
 ``` r
 library(spacejamr)
