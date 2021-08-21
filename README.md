@@ -2,6 +2,7 @@
 # spacejamr
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/dscolby/spacejamr.svg?branch=master)](https://travis-ci.com/dscolby/spacejamr)
 <!-- badges: end -->
 
 The goal of spacejamr is to enable social network analysis where conventional
