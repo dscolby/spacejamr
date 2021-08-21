@@ -37,7 +37,7 @@ Imports:
     ggthemes,
     methods
 Depends: 
-    R (>= 2.10)
+    R (>= 4.10)
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
