@@ -1,5 +1,5 @@
 Package: spacejamr
-Title: Spacejamr: Simulate Spatial Bernoulli Networks
+Title: Simulate Spatial Bernoulli Networks
 Version: 1.0.0
 Authors@R: 
     person(given = "Darren",
@@ -12,14 +12,14 @@ Description: Social network analysis is becoming increasingly popular in many
      among marginalized populations, still remains a large obstacle. Using this 
      package, it is possible to mitigate this problem by simulating spatial 
      Bernoulli networks as originally proposed by Carter T Butts (2002). To that 
-     end, spacejamr allows network analysts to simulate spatial Bernoulli 
+     end, this package enables network analysts to simulate spatial Bernoulli 
      networks by generating a spatial point process or sequence with a given 
      number of "nodes" or points in a given geographical area; calculate the 
      probability that any two nodes share a tie using either a standard power 
      law or attenuated power law spatial interaction function; and
      generate a network object. Additionally, the package provides simple 
-     to use plotting methods for its classes that return objects of class "gg"
-     which can be further refined with the ggplot2 package.
+     to use plotting methods for its classes that return plots which can be 
+     further refined with the ggplot2 package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -7,6 +7,10 @@ This is a resubmission. In this version I have:
 
 * Changed "possiblt" to "possibly" in the description file.
 
+* Replaced "spacejamr" with "this package."
+
+* Removed the package name from the title field.
+
 * Changed the title from sentence case to title case in the description file.
 
 * Created a cran-comments.md file in the correct directory.
@@ -18,9 +22,8 @@ This is a resubmission. In this version I have:
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | o notes
 
-* This is a new release.
 
 ## Downstream Dependencies
 There are currently no downstream dependencies for this package.
