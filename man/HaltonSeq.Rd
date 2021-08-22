@@ -26,14 +26,6 @@ the specificed number of point. Otherwise, the specified number of points
 will be generated within a containing rectangle and only those points within
 the spacejamr window will be kept.
 }
-\examples{
-\dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-   mex_seq <- HaltonSeq(1000, mex, 42)
-}
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

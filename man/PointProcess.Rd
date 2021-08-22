@@ -19,14 +19,6 @@ An object of classes PointProcess and PointSim
 \description{
 Creates a new Poisson Point Process in a spacejamr object
 }
-\examples{
-\dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-   mex_points <- PointProcess(1000, mex, 42)
-}
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

@@ -34,23 +34,6 @@ all pairs of points. Finally, it uses a standard power law function to
 calculate that any two point share a tie. If the threshold is exceeded, a tie
 is created.
 }
-\examples{
-\dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-
-   # With PointProcess
-   mex_points <- PointProcess(1000, mex, 42)
-   power_law <- PowerLawNetwork(mex_points, base_prob = 0.92, scale = 1,
-                             threshold = 0.5, power = -2.4)
-
-   # With HaltonSeq
-   mex_seq <- HaltonSeq(1000, mex, 42)
-   power_law <- PowerLawNetwork(mex_seq, base_prob = 0.98, scale = 100,
-                             threshold = 0.5, power = -1.87)
-}
-
-}
 \references{
 Butts, Carter T. Spatial models of large-scale interpersonal
 networks. Dissertation. (2002).

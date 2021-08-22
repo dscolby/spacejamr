@@ -24,8 +24,7 @@ An igraph object
 }
 \description{
 Simulates a spatial Bernoulli network from a NetSim object
-using an attenuated power law function as the spatial interaction
-function.
+using an attenuated power law function as the spatial interaction function.
 }
 \details{
 The algorithm proceeds in three steps. First, it calculates the
@@ -34,23 +33,6 @@ PointProcess and HaltonSeq objects. Then it calculates the distance between
 all pairs of points. Finally, it uses an attenuated power law function to
 calculate that any two point share a tie. If the threshold is exceeded, a tie
 is created.
-}
-\examples{
-\dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-
-   # With PointProcess
-   mex_points <- PointProcess(1000, mex, 42)
-   apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
-                            threshold = 0.5, power = -2.4)
-
-   # With HaltonSeq
-   mex_seq <- HaltonSeq(1000, mex, 42)
-   apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
-                         threshold = 0.5, power = -1.87)
-}
-
 }
 \references{
 Butts, Carter T. Spatial models of large-scale interpersonal

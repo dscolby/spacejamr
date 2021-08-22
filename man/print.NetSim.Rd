@@ -19,20 +19,24 @@ Plots a NetSim object and returns a ggraph object
 }
 \examples{
 \dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+# Create spacejamr object
+mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+}
 
-   # With PointProcess
-   mex_points <- PointProcess(1000, mex, 42)
-   apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+\dontrun{
+# With PointProcess
+mex_points <- PointProcess(1000, mex, 42)
+apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
                          threshold = 0.5, power = -2.4)
-   print(apl_points)
+print(apl_points)
+}
 
-   # With HaltonSeq
-   mex_seq <- HaltonSeq(1000, mex, 42)
-   apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+\dontrun{
+# With HaltonSeq
+mex_seq <- HaltonSeq(1000, mex, 42)
+apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
                       threshold = 0.5, power = -1.87)
-   print(apl_seq)
+print(apl_seq)
 }
 
 }

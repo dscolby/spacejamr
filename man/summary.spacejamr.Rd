@@ -2,7 +2,7 @@
 % Please edit documentation in R/spacejamr.R
 \name{summary.spacejamr}
 \alias{summary.spacejamr}
-\title{Print a summary of a spacejamr instance}
+\title{Print summary information of a spacejamr instance}
 \usage{
 \method{summary}{spacejamr}(object, ...)
 }
@@ -17,13 +17,6 @@ Summary method for the spacejamr class
 \details{
 Provides a wrapper for the summary.owin method in the spatstats.geom
 package.
-}
-\examples{
-\dontrun{
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-   summary(mex)
-}
-
 }
 \author{
 Darren Colby \cr

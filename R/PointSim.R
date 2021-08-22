@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/2/2021
+# Date: 8/22/2021
 # Purpose: To simulate spatial point processes
 
 # Constructor methods for the PointProcess class --------------------------
@@ -72,10 +72,10 @@ new_PointProcess <- function(points, window, seed) {
 #'
 #' @return An object of classes PointProcess and PointSim
 #'
-#' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-#'    mex_points <- PointProcess(1000, mex, 42)
+#' @example \dontrun{
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' mex_points <- PointProcess(1000, mex, 42)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -162,10 +162,10 @@ new_HaltonSeq <- function(points, window, seed) {
 #'
 #' @return An object of classes HaltonSeq and PointSim
 #'
-#' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
+#' @example \dontrun{
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' mex_seq <- HaltonSeq(1000, mex, 42)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -186,7 +186,7 @@ HaltonSeq <- function(points, window, seed = NULL) {
 #' Plot simulated points from a PointSim object
 #'
 #' @description Plots the results of points simulated in a PointProcess or
-#'     HaltonSeq class, whcih obht inherit methods from the PointSim class.
+#' HaltonSeq class, whcih obht inherit methods from the PointSim class.
 #'
 #' @details The returned plot can be refined with standard ggplot2 functions
 #'
@@ -199,16 +199,19 @@ HaltonSeq <- function(points, window, seed = NULL) {
 #' @return A ggplot2 object
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    plot(mex_points)
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' plot(mex_points)}
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    plot(mex_seq)
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' plot(mex_seq)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -236,22 +239,26 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #' Print information from a PointSim class
 #'
 #' @description Print method for both the PointProcess and HaltonSeq classes,
-#'     which inherit methods from the PointSim class.
+#' which inherit methods from the PointSim class.
 #'
 #' @param x a PointSim object or a child object
 #' @param ... ignored.
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    print(mex_points)
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' print(mex_points)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    print(mex_seq)
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' print(mex_seq)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -270,22 +277,26 @@ print.PointSim <- function(x, ...) {
 #' Display summary information from a PointSim instance
 #'
 #' @description Prints a summary of information from either a PointProcess or
-#'     HaltonSeq object, whcih are both child classes of the PointSim class.
+#' HaltonSeq object, whcih are both child classes of the PointSim class.
 #'
 #' @param object a PointSim object
 #' @param ... ignored.
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    summary(mex_points)
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' summary(mex_points)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    summary(mex_seq)
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' summary(mex_seq)
 #' }
 #'
 #' @author Darren Colby \cr

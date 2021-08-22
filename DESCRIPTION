@@ -1,5 +1,5 @@
 Package: spacejamr
-Title: Simulate Spatial Bernoulli Networks
+Title: spacejamr: Simulate Spatial Bernoulli Networks
 Version: 1.0.0
 Authors@R: 
     person(given = "Darren",
@@ -37,7 +37,7 @@ Imports:
     ggthemes,
     methods
 Depends: 
-    R (>= 4.0.5)
+    R (>= 4.0)
 Suggests: 
     covr,
     testthat (>= 3.0.0)

@@ -29,16 +29,19 @@ The returned plot can be refined with standard ggplot2 functions
 }
 \examples{
 \dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+# Create spacejamr object
+mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+}
 
-   # With PointProcess
-   mex_points <- PointProcess(1000, mex, 42)
-   plot(mex_points)
+\dontrun{
+# With PointProcess
+mex_points <- PointProcess(1000, mex, 42)
+plot(mex_points)}
 
-   # With HaltonSeq
-   mex_seq <- HaltonSeq(1000, mex, 42)
-   plot(mex_seq)
+\dontrun{
+# With HaltonSeq
+mex_seq <- HaltonSeq(1000, mex, 42)
+plot(mex_seq)
 }
 
 }

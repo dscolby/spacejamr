@@ -26,13 +26,6 @@ Plot method for the spacejamr class
 \details{
 The returned plot can be refined with standard ggplot2 functions
 }
-\examples{
-\dontrun{
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-   plot(mex)
-}
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

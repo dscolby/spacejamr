@@ -3,7 +3,7 @@ library(spacejamr)
 test_that("we can create spacejamr objects", {
 
     path <- system.file("extdata", "ri.shp", package ="spacejamr")
-    ri <- spacejamr(path)
+    ri <- as.spacejamr(path)
 
     # Ensures the correct class
     expect_identical(class(ri), c("spacejamr", "owin"))

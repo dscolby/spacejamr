@@ -18,13 +18,6 @@ Print method for the spacejamr class
 Provides a wrapper for the print.owin method in the spatstats.geom
 package.
 }
-\examples{
-\dontrun{
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-   print(mex)
-}
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

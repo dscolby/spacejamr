@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/2/2021
+# Date: 8/22/2021
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------
@@ -64,34 +64,34 @@ new_spacejamr <- function(path) {
 #'
 #' @description Creates a new spacejamr object that for further analysis
 #'
-#' @usage spacejamr(path)
+#' @usage as.spacejamr(path)
 #'
 #' @details The returned spacejamr object will contain a window object
-#'    containing a geographical boundary and its coordinate reference system.
-#'    Since simulating a spatial point process or sequnce requires a projected
-#'    coordinate reference system, this method will automatically look for the
-#'    most appropriate projected coordinate reference system and project the
-#'    geographical boundary to that system. Therefore, this function may take
-#'    some time to run but is necessary for later steps to simulate a spatial
-#'    Bernoulli network.
+#' containing a geographical boundary and its coordinate reference system.
+#' Since simulating a spatial point process or sequnce requires a projected
+#' coordinate reference system, this method will automatically look for the
+#' most appropriate projected coordinate reference system and project the
+#' geographical boundary to that system. Therefore, this function may take
+#' some time to run but is necessary for later steps to simulate a spatial
+#' Bernoulli network.
 #'
 #' @param path the path to a shapefile as a string.
 #'
 #' @return a spacejamr object
 #'
-#' @examples \dontrun{
-#'    mex <- spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' @example \dontrun{
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
 #' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby@@gmail.com
 #' @export
-spacejamr <- function(path) {
+as.spacejamr <- function(path) {
 
-   # Call the new_spacejamr constructor method
-   spacejamr_object <- new_spacejamr(path)
+    # Call the new_spacejamr constructor method
+    spacejamr_object <- new_spacejamr(path)
 
-   return(spacejamr_object)
+    return(spacejamr_object)
 
 }
 
@@ -113,9 +113,9 @@ spacejamr <- function(path) {
 #'
 #' @return A ggplot2 object
 #'
-#' @examples \dontrun{
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-#'    plot(mex)
+#' @example \dontrun{
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' plot(mex)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -124,7 +124,7 @@ spacejamr <- function(path) {
 plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 
    # Generate an sf object from the window
-   window <- sf::st_as_sf(spacejamr[[1]])
+   window <- sf::st_as_sf(x[[1]])
 
    plot <- ggplot2::ggplot() +
       ggplot2::geom_sf(data = window,
@@ -145,11 +145,11 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #' @param ... ignored.
 #'
 #' @details Provides a wrapper for the print.owin method in the spatstats.geom
-#'     package.
+#' package.
 #'
-#' @examples \dontrun{
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-#'    print(mex)
+#' @example \dontrun{
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' print(mex)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -171,11 +171,11 @@ print.spacejamr <- function(x, ...) {
 #' @param ... ignored.
 #'
 #' @details Provides a wrapper for the summary.owin method in the spatstats.geom
-#'     package.
+#' package.
 #'
-#' @examples \dontrun{
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
-#'    summary(mex)
+#' @example \dontrun{
+#' mex <- spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' summary(mex)
 #' }
 #'
 #' @author Darren Colby \cr

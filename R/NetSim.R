@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8//2021
+# Date: 8/22/2021
 # Purpose: To simulate spatial Bernoulli networks
 
 # Contructor methods to simulate a standard power law network -------------
@@ -50,7 +50,7 @@ validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  .name_repair = 'unique') %>%
+                                  column_name = c("V1", "V2")) %>%
 
     # Apply the power law function
     dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
@@ -105,7 +105,7 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' Simulate a power law network
 #'
 #' @description Simulates a spatial Bernoulli network from a NetSim object
-#'     using a standard power law function as the spatial interaction function.
+#' using a standard power law function as the spatial interaction function.
 #'
 #' @usage PowerLawNetwork(point_sim, base_prob, scale, threshold, power)
 #'
@@ -126,18 +126,22 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @return An iGraph object
 #'
-#' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' @example \dontrun{
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    power_law <- PowerLawNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' power_law <- PowerLawNetwork(mex_points, base_prob = 0.92, scale = 1,
 #'                              threshold = 0.5, power = -2.4)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    power_law <- PowerLawNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' power_law <- PowerLawNetwork(mex_seq, base_prob = 0.98, scale = 100,
 #'                              threshold = 0.5, power = -1.87)
 #' }
 #'
@@ -260,8 +264,7 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' Simulate an attenuated power law network
 #'
 #' @description Simulates a spatial Bernoulli network from a NetSim object
-#'     using an attenuated power law function as the spatial interaction
-#'     function.
+#' using an attenuated power law function as the spatial interaction function.
 #'
 #' @usage APLNetwork(point_sim, base_prob, scale, threshold, power)
 #'
@@ -282,19 +285,23 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @return An igraph object
 #'
-#' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' @example \dontrun{
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
-#'                             threshold = 0.5, power = -2.4)
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#'                          threshold = 0.5, power = -2.4)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
-#'                          threshold = 0.5, power = -1.87)
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#'                       threshold = 0.5, power = -1.87)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -320,10 +327,10 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #' Plot a simulated network from a NetSim object
 #'
 #' @description This can take either a PowerLawNetwork or APLNetwork object as
-#'     input, both of which are chidren of the NetSim class.
+#' input, both of which are chidren of the NetSim class.
 #'
 #' @details This method returns a ggraph object, which can be further refined
-#'     using standard ggraph and ggplot facilities.
+#' using standard ggraph and ggplot facilities.
 #'
 #' @param x a NetSim graph
 #' @param y ignored.
@@ -337,18 +344,22 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #' @return A ggraph object
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
-#'    plot(apl_points)
+#' plot(apl_points)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #'    plot(apl_seq)
 #' }
@@ -385,20 +396,24 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #' @return A ggraph object
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
-#'    print(apl_points)
+#' print(apl_points)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
-#'    print(apl_seq)
+#' print(apl_seq)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -422,20 +437,24 @@ print.NetSim <- function(x, ...) {
 #' @return A ggraph object
 #'
 #' @examples \dontrun{
-#'    # Create spacejamr object
-#'    mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+#' # Create spacejamr object
+#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' }
 #'
-#'    # With PointProcess
-#'    mex_points <- PointProcess(1000, mex, 42)
-#'    apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
-#'                             threshold = 0.5, power = -2.4)
-#'    summary(apl_points)
+#' \dontrun{
+#' # With PointProcess
+#' mex_points <- PointProcess(1000, mex, 42)
+#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#'                          threshold = 0.5, power = -2.4)
+#' summary(apl_points)
+#' }
 #'
-#'    # With HaltonSeq
-#'    mex_seq <- HaltonSeq(1000, mex, 42)
-#'    apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
-#'                          threshold = 0.5, power = -1.87)
-#'    summary(apl_seq)
+#' \dontrun{
+#' # With HaltonSeq
+#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#'                       threshold = 0.5, power = -1.87)
+#' summary(apl_seq)
 #' }
 #'
 #' @author Darren Colby \cr

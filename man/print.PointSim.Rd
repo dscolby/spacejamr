@@ -17,16 +17,20 @@ which inherit methods from the PointSim class.
 }
 \examples{
 \dontrun{
-   # Create spacejamr object
-   mex <- spacejamr("Z:shapefiles", "mexico_adm0")
+# Create spacejamr object
+mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+}
 
-   # With PointProcess
-   mex_points <- PointProcess(1000, mex, 42)
-   print(mex_points)
+\dontrun{
+# With PointProcess
+mex_points <- PointProcess(1000, mex, 42)
+print(mex_points)
+}
 
-   # With HaltonSeq
-   mex_seq <- HaltonSeq(1000, mex, 42)
-   print(mex_seq)
+\dontrun{
+# With HaltonSeq
+mex_seq <- HaltonSeq(1000, mex, 42)
+print(mex_seq)
 }
 
 }
