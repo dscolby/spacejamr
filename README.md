@@ -2,10 +2,8 @@
 # spacejamr
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/dscolby/spacejamr.svg?branch=master)](https://travis-ci.com/dscolby/spacejamr)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/dscolby/spacejamr?branch=master&svg=true)](https://ci.appveyor.com/project/dscolby/spacejamr)
 [![R-CMD-check](https://github.com/dscolby/spacejamr/workflows/R-CMD-check/badge.svg)](https://github.com/dscolby/spacejamr/actions)
-[![Codecov test coverage](https://codecov.io/gh/dscolby/spacejamr/branch/master/graph/badge.svg)](https://codecov.io/gh/dscolby/spacejamr?branch=master)
 [![Coveralls test coverage](https://coveralls.io/repos/github/dscolby/spacejamr/badge.svg)](https://coveralls.io/r/dscolby/spacejamr?branch=master)
 <!-- badges: end -->
 
