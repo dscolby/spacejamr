@@ -1,7 +1,7 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Changed the spelling of "ggplot" to 'ggplot2' in the description file.
+* Changed the spelling of ggplot to 'ggplot2' in the description file.
 
 * Replaced the sample dataset with a smaller dataset to save space.
 

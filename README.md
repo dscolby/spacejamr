@@ -73,4 +73,4 @@ Creator: Darren Colby\
 Maintainer: Darren Colby\
 Maintainer email: dscolby17@gmail.com\
 Current version: 0.1\
-License: MIT\
+License: MIT
