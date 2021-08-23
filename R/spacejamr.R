@@ -80,7 +80,7 @@ new_spacejamr <- function(path) {
 #' @return a spacejamr object
 #'
 #' @example \dontrun{
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' @author Darren Colby \cr
@@ -114,8 +114,8 @@ as.spacejamr <- function(path) {
 #' @return A ggplot2 object
 #'
 #' @example \dontrun{
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
-#' plot(mex)
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
+#' plot(ri)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -148,8 +148,8 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #' package.
 #'
 #' @example \dontrun{
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
-#' print(mex)
+#' mex <- as.spacejamr("Z:shapefiles/ri.shp")
+#' print(ri)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -174,8 +174,8 @@ print.spacejamr <- function(x, ...) {
 #' package.
 #'
 #' @example \dontrun{
-#' mex <- spacejamr("Z:shapefiles/mexico_adm0.shp")
-#' summary(mex)
+#' mex <- spacejamr("Z:shapefiles/ri.shp")
+#' summary(ri)
 #' }
 #'
 #' @author Darren Colby \cr

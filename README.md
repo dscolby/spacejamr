@@ -29,17 +29,17 @@ Simulate a Poisson point process and use it to generate a power law network:
 library(spacejamr)
 
 ## load mexico dataset
-data(mexico)
+data(RI)
 
 ## Simulate a spatial Poisson point process
-mex_points <- PointProcess(points = 5000, window = mexico, seed = 88)
+ri_points <- PointProcess(points = 5000, window = RI, seed = 88)
 
 ## Generate a standard power law network
-mexnet <- PowerLawNetwork(point_process = mex_points, base_prob = 0.95,
-                          scale = 1000, threshold = 0.5, power = -2.3)
+rinet <- PowerLawNetwork(point_process = ri, base_prob = 0.95, scale = 100, 
+                         threshold = 0.5, power = -2.3)
 
 ## Visualize the new network
-plot(mexnet)
+plot(rinet)
 
 ```
 

@@ -1,6 +1,6 @@
 Package: spacejamr
 Title: Simulate Spatial Bernoulli Networks
-Version: 1.0.0
+Version: 0.1
 Authors@R: 
     person(given = "Darren",
            family = "Colby",
@@ -19,7 +19,7 @@ Description: Social network analysis is becoming increasingly popular in many
      law or attenuated power law spatial interaction function; and
      generate a network object. Additionally, the package provides simple 
      to use plotting methods for its classes that return plots which can be 
-     further refined with the ggplot2 package.
+     further refined with the 'ggplot2' package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

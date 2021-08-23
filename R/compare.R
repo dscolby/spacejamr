@@ -26,14 +26,14 @@
 #'
 #' @example \dontrun{
 #' # load data
-#' data("mexico)
+#' data("RI")
 #'
 #' # Simulate point process
-#' mex_points <- PointProcess(50, mexico)
+#' ri_points <- PointProcess(50, RI)
 #'
 #' # Create two networks
-#' pl <- PowerLawNetwork(mex_points) # Standard power law
-#' apl <- APLNetwork(mex_points) # Attenuated power law
+#' pl <- PowerLawNetwork(ri_points) # Standard power law
+#' apl <- APLNetwork(ri_points) # Attenuated power law
 #'
 #' compare_networks(pl, apl)
 #' }

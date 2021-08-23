@@ -30,18 +30,18 @@ The returned plot can be refined with standard ggplot2 functions
 \examples{
 \dontrun{
 # Create spacejamr object
-mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+ri <- as.spacejamr("Z:shapefiles/ri.shp")
 }
 
 \dontrun{
 # With PointProcess
-mex_points <- PointProcess(1000, mex, 42)
-plot(mex_points)}
+ri_points <- PointProcess(1000, ri, 42)
+plot(ri_points)}
 
 \dontrun{
 # With HaltonSeq
-mex_seq <- HaltonSeq(1000, mex, 42)
-plot(mex_seq)
+ri_seq <- HaltonSeq(1000, ri, 42)
+plot(ri_seq)
 }
 
 }

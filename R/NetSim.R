@@ -128,20 +128,20 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @example \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' power_law <- PowerLawNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' ri_points <- PointProcess(1000, ri, 42)
+#' power_law <- PowerLawNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                              threshold = 0.5, power = -2.4)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' power_law <- PowerLawNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' power_law <- PowerLawNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                              threshold = 0.5, power = -1.87)
 #' }
 #'
@@ -287,20 +287,20 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @example \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' mex <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' ri_points <- PointProcess(1000, ri, 42)
+#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' mex_seq <- HaltonSeq(1000, ri, 42)
+#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #' }
 #'
@@ -345,21 +345,21 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' ri_points <- PointProcess(1000, ri, 42)
+#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' plot(apl_points)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #'    plot(apl_seq)
 #' }
@@ -397,21 +397,21 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' ri_points <- PointProcess(1000, ri, 42)
+#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' print(apl_points)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #' print(apl_seq)
 #' }
@@ -438,21 +438,21 @@ print.NetSim <- function(x, ...) {
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+#' ri_points <- PointProcess(1000, ri, 42)
+#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' summary(apl_points)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #' summary(apl_seq)
 #' }

@@ -17,7 +17,7 @@ networks.
 APLNetwork \cr
 compare_networks \cr
 HaltonSeq \cr
-mexico \cr
+RI \cr
 plot.NetSim \cr
 plot.PointSim \cr
 plot.spacejamr \cr

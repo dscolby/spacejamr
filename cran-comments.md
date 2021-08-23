@@ -1,19 +1,10 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Changed the spelling of "ggplot" to "ggplot2" in the description file.
+* Changed the spelling of "ggplot" to 'ggplot2' in the description file.
 
-* Changed "orignially" to "originally" in the description file.
+* Replaced the sample dataset with a smaller dataset to save space.
 
-* Changed "possiblt" to "possibly" in the description file.
-
-* Replaced "spacejamr" with "this package."
-
-* Removed the package name from the title field.
-
-* Changed the title from sentence case to title case in the description file.
-
-* Created a cran-comments.md file in the correct directory.
 
 ## Test environments
 * local R installation, R 4.1.0

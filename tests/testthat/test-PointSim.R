@@ -1,20 +1,20 @@
 library(spacejamr)
 
 # Data used for testing
-data("mexico")
+data("RI")
 
 test_that("we can simulate point processes", {
 
-    mex_points <- PointProcess(10, mexico)
+    ri_points <- PointProcess(10, RI)
 
     # Ensure correct class
-    expect_identical(class(mex_points), c("PointProcess", "PointSim"))
+    expect_identical(class(ri_points), c("PointProcess", "PointSim"))
 })
 
 test_that("we can generate a Halton Sequence", {
 
-    mex_points <- HaltonSeq(10, mexico)
+    ri_points <- HaltonSeq(10, RI)
 
     # Ensure correct class
-    expect_identical(class(mex_points), c("HaltonSeq", "PointSim"))
+    expect_identical(class(ri_points), c("HaltonSeq", "PointSim"))
 })

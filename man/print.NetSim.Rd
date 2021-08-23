@@ -20,21 +20,21 @@ Plots a NetSim object and returns a ggraph object
 \examples{
 \dontrun{
 # Create spacejamr object
-mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+ri <- as.spacejamr("Z:shapefiles/ri.shp")
 }
 
 \dontrun{
 # With PointProcess
-mex_points <- PointProcess(1000, mex, 42)
-apl_points <- APLNetwork(mex_points, base_prob = 0.92, scale = 1,
+ri_points <- PointProcess(1000, ri, 42)
+apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
                          threshold = 0.5, power = -2.4)
 print(apl_points)
 }
 
 \dontrun{
 # With HaltonSeq
-mex_seq <- HaltonSeq(1000, mex, 42)
-apl_seq <- APLNetwork(mex_seq, base_prob = 0.98, scale = 100,
+ri_seq <- HaltonSeq(1000, ri, 42)
+apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
                       threshold = 0.5, power = -1.87)
 print(apl_seq)
 }

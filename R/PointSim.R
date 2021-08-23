@@ -74,8 +74,8 @@ new_PointProcess <- function(points, window, seed) {
 #'
 #' @example \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
-#' mex_points <- PointProcess(1000, mex, 42)
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
+#' ri_points <- PointProcess(1000, ri, 42)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -164,8 +164,8 @@ new_HaltonSeq <- function(points, window, seed) {
 #'
 #' @example \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
-#' mex_seq <- HaltonSeq(1000, mex, 42)
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
+#' ri_seq <- HaltonSeq(1000, ri, 42)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -200,18 +200,18 @@ HaltonSeq <- function(points, window, seed = NULL) {
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' plot(mex_points)}
+#' ri_points <- PointProcess(1000, ri, 42)
+#' plot(ri_points)}
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' plot(mex_seq)
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' plot(ri_seq)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -246,19 +246,19 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' print(mex_points)
+#' ri_points <- PointProcess(1000, ri, 42)
+#' print(ri_points)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' print(mex_seq)
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' print(ri_seq)
 #' }
 #'
 #' @author Darren Colby \cr
@@ -284,19 +284,19 @@ print.PointSim <- function(x, ...) {
 #'
 #' @examples \dontrun{
 #' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/mexico_adm0.shp")
+#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
 #' }
 #'
 #' \dontrun{
 #' # With PointProcess
-#' mex_points <- PointProcess(1000, mex, 42)
-#' summary(mex_points)
+#' ri_points <- PointProcess(1000, ri, 42)
+#' summary(ri_points)
 #' }
 #'
 #' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, mex, 42)
-#' summary(mex_seq)
+#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' summary(ri_seq)
 #' }
 #'
 #' @author Darren Colby \cr
