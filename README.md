@@ -1,5 +1,5 @@
 
-# spacejamr
+# spacejamr: Simulate spatial Bernoulli networks
 
 <!-- badges: start -->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/dscolby/spacejamr?branch=master&svg=true)](https://ci.appveyor.com/project/dscolby/spacejamr)
@@ -11,7 +11,7 @@ The goal of spacejamr is to enable social network analysis where conventional
 collection of social network data would be impossible. It does this by providing
 tools to prepare shapefiles, simulate spatial point processes, generate networks 
 from those point processes using a spatial interaction function. It also 
-contains plot methods that return ggplot objects that can be further refined.
+contains plot methods that return ggplot2 objects that can be further refined.
 
 ## Installation
 
@@ -21,25 +21,56 @@ You can install the released version of spacejamr from [CRAN](https://CRAN.R-pro
 install.packages("spacejamr")
 ```
 
-## Example
-
-Simulate a Poisson point process and use it to generate a power law network:
+## Simulate a point process or sequence
 
 ``` r
 library(spacejamr)
 
-## load mexico dataset
+# load Rhode Island dataset
 data(RI)
 
-## Simulate a spatial Poisson point process
+# Spatial Poisson point process
 ri_points <- PointProcess(points = 5000, window = RI, seed = 88)
 
-## Generate a standard power law network
-rinet <- PowerLawNetwork(point_process = ri, base_prob = 0.95, scale = 100, 
-                         threshold = 0.5, power = -2.3)
-
-## Visualize the new network
-plot(rinet)
+# Halton sequence
+ri_seq <- haltonSeq(points = 5000, window = RI, seed = 9)
 
 ```
 
+## Generate networks from spatial interaction functions
+
+``` r
+
+# Standard power law SIF
+rinet_standard <- PowerLawNetwork(point_process = ri_points, base_prob = 0.95, 
+                                  scale = 100, threshold = 0.5, power = -2.3)
+
+# Attenuated power law SIF
+rinet_apl <- APLNetwork(point_process = ri_points, base_prob = 0.93,
+                        scale = 100, threshold = 0.5, power = -1.9)
+
+```
+
+## Plot methods
+
+``` r
+
+# Boundaries
+plot(RI)
+
+# Point process or sequence realization
+plot(ri_points)
+plot(ri_seq)
+
+# Network generated from SIF
+plot(rinet_standard)
+plot(rinet_apl)
+
+```
+
+## About
+Creator: Darren Colby\
+Maintainer: Darren Colby\
+Maintainer email: dscolby17@gmail.com\
+Current version: 0.1\
+License: MIT\
