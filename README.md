@@ -40,7 +40,6 @@ ri_seq <- haltonSeq(points = 5000, window = RI, seed = 9)
 ## Generate networks from spatial interaction functions
 
 ``` r
-
 # Standard power law SIF
 rinet_standard <- PowerLawNetwork(point_process = ri_points, base_prob = 0.95, 
                                   scale = 100, threshold = 0.5, power = -2.3)
@@ -54,7 +53,6 @@ rinet_apl <- APLNetwork(point_process = ri_points, base_prob = 0.93,
 ## Plot methods
 
 ``` r
-
 # Boundaries
 plot(RI)
 
@@ -68,8 +66,16 @@ plot(rinet_apl)
 
 ```
 
+## Compare two simulated networks
+
+``` r
+compare_networks(rinet_standard, rinet_apl)
+
+```
+
 ## About
 Creator: Darren Colby\
+Creater ORCID: 0000-0001-8468-2755
 Maintainer: Darren Colby\
 Maintainer email: dscolby17@gmail.com\
 Current version: 0.1\
