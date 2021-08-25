@@ -38,7 +38,7 @@ Imports:
     ggthemes,
     methods
 Depends: 
-    R (>= 4.0)
+    R (>= 3.5)
 Suggests: 
     covr,
     testthat (>= 3.0.0)
