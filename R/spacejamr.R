@@ -147,6 +147,8 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #' @details Provides a wrapper for the print.owin method in the spatstats.geom
 #' package.
 #'
+#' @return No return value
+#'
 #' @example \dontrun{
 #' mex <- as.spacejamr("Z:shapefiles/ri.shp")
 #' print(ri)
@@ -172,6 +174,8 @@ print.spacejamr <- function(x, ...) {
 #'
 #' @details Provides a wrapper for the summary.owin method in the spatstats.geom
 #' package.
+#'
+#' @return No return value
 #'
 #' @example \dontrun{
 #' mex <- spacejamr("Z:shapefiles/ri.shp")
