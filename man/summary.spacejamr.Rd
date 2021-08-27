@@ -11,6 +11,9 @@
 
 \item{...}{ignored.}
 }
+\value{
+No return value
+}
 \description{
 Summary method for the spacejamr class
 }

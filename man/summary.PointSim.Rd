@@ -11,27 +11,24 @@
 
 \item{...}{ignored.}
 }
+\value{
+No return value
+}
 \description{
 Prints a summary of information from either a PointProcess or
 HaltonSeq object, whcih are both child classes of the PointSim class.
 }
 \examples{
-\dontrun{
-# Create spacejamr object
-ri <- as.spacejamr("Z:shapefiles/ri.shp")
-}
+# Load spacejamr object
+data("RI")
 
-\dontrun{
 # With PointProcess
-ri_points <- PointProcess(1000, ri, 42)
+ri_points <- PointProcess(10, RI, 42)
 summary(ri_points)
-}
 
-\dontrun{
 # With HaltonSeq
-ri_seq <- HaltonSeq(1000, ri, 42)
+ri_seq <- HaltonSeq(10, RI, 42)
 summary(ri_seq)
-}
 
 }
 \author{

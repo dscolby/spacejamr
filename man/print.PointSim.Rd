@@ -11,27 +11,24 @@
 
 \item{...}{ignored.}
 }
+\value{
+No return value
+}
 \description{
 Print method for both the PointProcess and HaltonSeq classes,
 which inherit methods from the PointSim class.
 }
 \examples{
-\dontrun{
-# Create spacejamr object
-ri <- as.spacejamr("Z:shapefiles/ri.shp")
-}
+# Load spacejamr object
+data("RI")
 
-\dontrun{
 # With PointProcess
-ri_points <- PointProcess(1000, ri, 42)
+ri_points <- PointProcess(10, RI, 42)
 print(ri_points)
-}
 
-\dontrun{
 # With HaltonSeq
-ri_seq <- HaltonSeq(1000, ri, 42)
+ri_seq <- HaltonSeq(10, RI, 42)
 print(ri_seq)
-}
 
 }
 \author{

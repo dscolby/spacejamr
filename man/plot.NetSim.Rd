@@ -42,26 +42,20 @@ This method returns a ggraph object, which can be further refined
 using standard ggraph and ggplot facilities.
 }
 \examples{
-\dontrun{
-# Create spacejamr object
-ri <- as.spacejamr("Z:shapefiles/ri.shp")
-}
+# Load spacejamr object
+data("RI")
 
-\dontrun{
 # With PointProcess
-ri_points <- PointProcess(1000, ri, 42)
+ri_points <- PointProcess(10, RI, 42)
 apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
                          threshold = 0.5, power = -2.4)
 plot(apl_points)
-}
 
-\dontrun{
 # With HaltonSeq
-ri_seq <- HaltonSeq(1000, ri, 42)
+ri_seq <- HaltonSeq(10, RI, 42)
 apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
                       threshold = 0.5, power = -1.87)
-   plot(apl_seq)
-}
+plot(apl_seq)
 
 }
 \seealso{
