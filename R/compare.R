@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/22/2021
+# Date: 8/27/2021
 # Purpose: Provide a function to compare two simulated networks
 
 
@@ -24,19 +24,18 @@
 #'
 #' @return A dataframe
 #'
-#' @example \dontrun{
+#' @example
 #' # load data
 #' data("RI")
 #'
 #' # Simulate point process
-#' ri_points <- PointProcess(50, RI)
+#' ri_points <- PointProcess(10, RI)
 #'
 #' # Create two networks
 #' pl <- PowerLawNetwork(ri_points) # Standard power law
 #' apl <- APLNetwork(ri_points) # Attenuated power law
 #'
 #' compare_networks(pl, apl)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -46,7 +45,7 @@ compare_networks <- function(net1, net2) {
     stopifnot(methods::is(net1, c("NetSim", "igraph"))&
                   methods::is(net2, c("NetSim", "igraph")))
 
-    # Compute basinc network statistics
+    # Compute basic network statistics
     density <- c(igraph::edge_density(net1), igraph::edge_density(net1))
     degree <- c(mean(igraph::degree(net1)), mean(igraph::degree(net2)))
     closeness <- c(mean(igraph::closeness(net1)), mean(igraph::closeness(net2)))

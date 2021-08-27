@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/22/2021
+# Date: 8/27/2021
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------
@@ -79,8 +79,8 @@ new_spacejamr <- function(path) {
 #'
 #' @return a spacejamr object
 #'
-#' @example \dontrun{
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
+#' @example \donttest{
+#' ri <- as.spacejamr("ri.shp")
 #' }
 #'
 #' @author Darren Colby \cr
@@ -113,10 +113,11 @@ as.spacejamr <- function(path) {
 #'
 #' @return A ggplot2 object
 #'
-#' @example \dontrun{
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' plot(ri)
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
+#'
+#' plot(RI)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -149,10 +150,11 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #'
 #' @return No return value
 #'
-#' @example \dontrun{
-#' mex <- as.spacejamr("Z:shapefiles/ri.shp")
-#' print(ri)
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
+#'
+#' print(RI)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -177,10 +179,11 @@ print.spacejamr <- function(x, ...) {
 #'
 #' @return No return value
 #'
-#' @example \dontrun{
-#' mex <- spacejamr("Z:shapefiles/ri.shp")
-#' summary(ri)
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
+#'
+#' summary(RI)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com

@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/22/2021
+# Date: 8/27/2021
 # Purpose: To simulate spatial Bernoulli networks
 
 # Contructor methods to simulate a standard power law network -------------
@@ -50,7 +50,7 @@ validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  column_name = c("V1", "V2")) %>%
+                                  .name_repair = "unique") %>%
 
     # Apply the power law function
     dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
@@ -126,24 +126,19 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @return An iGraph object
 #'
-#' @example \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' power_law <- PowerLawNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                              threshold = 0.5, power = -2.4)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10,RI, 42)
 #' power_law <- PowerLawNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                              threshold = 0.5, power = -1.87)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -186,6 +181,8 @@ PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #    Email: dscolby17@gmail.com
 validate_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 
+    stopifnot(methods::is(point_sim, "PointSim"))
+
 
     # Helper function to estimate the probability of a tie with given parameters
     ProbabilityFunction <- function(dist) {
@@ -209,7 +206,7 @@ validate_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  column_name = c("v1", "v2")) %>%
+                                  .name_repair = "unique") %>%
 
         # Apply the power law function
         dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
@@ -285,24 +282,19 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #'
 #' @return An igraph object
 #'
-#' @example \dontrun{
-#' # Create spacejamr object
-#' mex <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' mex_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10,RI, 42)
 #' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -343,26 +335,21 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #'
 #' @return A ggraph object
 #'
-#' @examples \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @examples
+#' # Load spacejamr object
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' plot(apl_points)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
-#'    plot(apl_seq)
-#' }
+#' plot(apl_seq)
 #'
 #' @author Darren Colby \cr
 #' Email:dscolby17@@gmail.com
@@ -395,26 +382,21 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @return A ggraph object
 #'
-#' @examples \dontrun{
+#' @examples
 #' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' print(apl_points)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #' print(apl_seq)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -436,32 +418,27 @@ print.NetSim <- function(x, ...) {
 #'
 #' @return A ggraph object
 #'
-#' @examples \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @examples
+#' # Load spacejamr object
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' summary(apl_points)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(1000, RI, 42)
 #' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
 #'                       threshold = 0.5, power = -1.87)
 #' summary(apl_seq)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
 #' @export
 summary.NetSim <- function(object, ...) {
 
-    summary(object)
+    print(object)
 
 }

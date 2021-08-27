@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/22/2021
+# Date: 8/27/2021
 # Purpose: To simulate spatial point processes
 
 # Constructor methods for the PointProcess class --------------------------
@@ -20,7 +20,7 @@
 #    Email: dscolby17@gmail.com
 validate_PointProcess <- function(points, window, seed) {
 
-   stopifnot(methods::is(window, "spacejamr")) # Ensures correct input
+   stopifnot(methods::is(window, c("spacejamr", "owin")))
 
    if (!is.null(seed)) {set.seed(seed)}  # Optional seed
 
@@ -72,11 +72,11 @@ new_PointProcess <- function(points, window, seed) {
 #'
 #' @return An object of classes PointProcess and PointSim
 #'
-#' @example \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' ri_points <- PointProcess(1000, ri, 42)
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
+#'
+#' ri_points <- PointProcess(10, RI, 42)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -109,7 +109,7 @@ PointProcess <- function(points, window, seed = NULL) {
 #    Email: dscolby17@gmail.com
 validate_HaltonSeq <- function(points, window, seed) {
 
-   stopifnot(methods::is(window, "spacejamr")) # Ensures correct input
+   stopifnot(methods::is(window, c("spacejamr", "owin")))  # Check correct input
 
    if (!is.null(seed)) {set.seed(seed)}  # Optional seed
 
@@ -162,11 +162,11 @@ new_HaltonSeq <- function(points, window, seed) {
 #'
 #' @return An object of classes HaltonSeq and PointSim
 #'
-#' @example \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' ri_seq <- HaltonSeq(1000, ri, 42)
-#' }
+#' @example
+#' # Load spacejamr object
+#' data("RI")
+#'
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -198,21 +198,17 @@ HaltonSeq <- function(points, window, seed = NULL) {
 #'
 #' @return A ggplot2 object
 #'
-#' @examples \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @examples
+#' # Load spacejamr object
+#' data("RI")
 #'
-#' \dontrun{
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
-#' plot(ri_points)}
+#' ri_points <- PointProcess(10, RI, 42)
+#' plot(ri_points)
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #' plot(ri_seq)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -244,22 +240,19 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #' @param x a PointSim object or a child object
 #' @param ... ignored.
 #'
-#' @examples \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @return No return value
 #'
-#' \dontrun{
+#' @examples
+#' # Load spacejamr object
+#' data("RI")
+#'
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' print(ri_points)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #' print(ri_seq)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -282,22 +275,19 @@ print.PointSim <- function(x, ...) {
 #' @param object a PointSim object
 #' @param ... ignored.
 #'
-#' @examples \dontrun{
-#' # Create spacejamr object
-#' ri <- as.spacejamr("Z:shapefiles/ri.shp")
-#' }
+#' @return No return value
 #'
-#' \dontrun{
+#' @examples
+#' # Load spacejamr object
+#' data("RI")
+#'
 #' # With PointProcess
-#' ri_points <- PointProcess(1000, ri, 42)
+#' ri_points <- PointProcess(10, RI, 42)
 #' summary(ri_points)
-#' }
 #'
-#' \dontrun{
 #' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, ri, 42)
+#' ri_seq <- HaltonSeq(10, RI, 42)
 #' summary(ri_seq)
-#' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
