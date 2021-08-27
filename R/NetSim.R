@@ -124,7 +124,8 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' having a tie. Default is 0.5.
 #' @param power the exponent at which tie probability decays. Default is -2.8.
 #'
-#' @return An iGraph object
+#' @return A network object of class 'igraph' that can be manipulated using the
+#' 'igraph' package.
 #'
 #' @example
 #' # Load spacejamr object
@@ -280,7 +281,8 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' having a tie. Default is 0.5.
 #' @param power the exponent at which tie probability decays. Default is -2.8.
 #'
-#' @return An igraph object
+#' @return A network object of class 'igraph' that can be manipulated using the
+#' 'igraph' package.
 #'
 #' @example
 #' # Load spacejamr object
@@ -333,7 +335,7 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #' @param node_color a color for the nodes. Default is blue.
 #' @param edge_color a color for the edges. Default is red.
 #'
-#' @return A ggraph object
+#' @return A plot of classes 'gg' and 'ggplot'
 #'
 #' @examples
 #' # Load spacejamr object
@@ -380,7 +382,7 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #' @param x a NetSim object
 #' @param ... ignored.
 #'
-#' @return A ggraph object
+#' @return No return value, called for sied effects
 #'
 #' @examples
 #' # Create spacejamr object
@@ -416,7 +418,7 @@ print.NetSim <- function(x, ...) {
 #' @param object a NetSim object
 #' @param ... ignored.
 #'
-#' @return A ggraph object
+#' @return No return value, called for side effects
 #'
 #' @examples
 #' # Load spacejamr object

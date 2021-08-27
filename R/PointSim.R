@@ -70,7 +70,11 @@ new_PointProcess <- function(points, window, seed) {
 #' @param window a spacejamr object to use as the spatial extent
 #' @param seed an optional seed
 #'
-#' @return An object of classes PointProcess and PointSim
+#' @return An object of class PointProcess that contains a geographical window
+#' of class 'owin'. Within this window are four objects. n: the number of
+#' simulated points. x: the x coordinates of the simulated points. y: the y
+#' coordinates of the simulated points. markformat: an empty place holder.
+#' Objects returned by this function inherit methods from the 'PointSim' class.
 #'
 #' @example
 #' # Load spacejamr object
@@ -160,7 +164,11 @@ new_HaltonSeq <- function(points, window, seed) {
 #' will be generated within a containing rectangle and only those points within
 #' the spacejamr window will be kept.
 #'
-#' @return An object of classes HaltonSeq and PointSim
+#' @return An object of class HaltonSeq that contains a geographical window of
+#' class 'owin'. Within this window are four objects. n: the number of simulated
+#' points. x: the x coordinates of the simulated points. y: the y coordinates of
+#' the simulated points. markformat: an empty place holder. Objects returned by
+#' this function inherit methods from the 'PointSim' class.
 #'
 #' @example
 #' # Load spacejamr object
@@ -196,7 +204,7 @@ HaltonSeq <- function(points, window, seed = NULL) {
 #' @param title an optional title. Default is "Simulated Points".
 #' @param color an optional color for the simulated points. Default is red.
 #'
-#' @return A ggplot2 object
+#' @return A plot of classes 'gg' and 'ggplot'
 #'
 #' @examples
 #' # Load spacejamr object

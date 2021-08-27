@@ -77,7 +77,9 @@ new_spacejamr <- function(path) {
 #'
 #' @param path the path to a shapefile as a string.
 #'
-#' @return a spacejamr object
+#' @return a spacejamr object containing two items. window: object of class
+#' 'owin' that stores geographical boundaries. crs: integer value referring to
+#' the coordinate reference system of the geographical boundaries.
 #'
 #' @example \donttest{
 #' ri <- as.spacejamr("ri.shp")
@@ -111,7 +113,7 @@ as.spacejamr <- function(path) {
 #'
 #' @details The returned plot can be refined with standard ggplot2 functions
 #'
-#' @return A ggplot2 object
+#' @return A plot of classes 'gg' and 'ggplot'
 #'
 #' @example
 #' # Load spacejamr object
