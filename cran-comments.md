@@ -1,9 +1,15 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Changed the spelling of ggplot to 'ggplot2' in the description file.
+* Omitted default paths from the documentation.
 
-* Replaced the sample dataset with a smaller dataset to save space.
+* Removed \dontrun{} tags in the documentation.
+
+* Added \value tags where they were missing in the documentation.
+
+* Created better descriptions for the \value sections in the ROxygen comments.
+
+* Added a reference in the description field of the DESCRIPTION file.
 
 
 ## Test environments
