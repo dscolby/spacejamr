@@ -148,7 +148,7 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #' @details Provides a wrapper for the print.owin method in the spatstats.geom
 #' package.
 #'
-#' @return No return value
+#' @return No return value, called for side effects
 #'
 #' @example
 #' # Load spacejamr object
@@ -177,7 +177,7 @@ print.spacejamr <- function(x, ...) {
 #' @details Provides a wrapper for the summary.owin method in the spatstats.geom
 #' package.
 #'
-#' @return No return value
+#' @return No return value, called for side effects
 #'
 #' @example
 #' # Load spacejamr object

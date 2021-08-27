@@ -240,7 +240,7 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #' @param x a PointSim object or a child object
 #' @param ... ignored.
 #'
-#' @return No return value
+#' @return No return value, called for side effects
 #'
 #' @examples
 #' # Load spacejamr object
@@ -275,7 +275,7 @@ print.PointSim <- function(x, ...) {
 #' @param object a PointSim object
 #' @param ... ignored.
 #'
-#' @return No return value
+#' @return No return value, called for side effects
 #'
 #' @examples
 #' # Load spacejamr object
