@@ -31,7 +31,7 @@ from the ggraph package. Default is "stress".}
 \item{edge_color}{a color for the edges. Default is red.}
 }
 \value{
-A ggraph object
+A plot of classes 'ggraph' 'gg' and 'ggplot'
 }
 \description{
 This can take either a PowerLawNetwork or APLNetwork object as

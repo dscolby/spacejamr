@@ -20,7 +20,8 @@ having a tie. Default is 0.5.}
 \item{power}{the exponent at which tie probability decays. Default is -2.8.}
 }
 \value{
-An iGraph object
+A network object of class 'igraph' that can be manipulated using the
+'igraph' package.
 }
 \description{
 Simulates a spatial Bernoulli network from a NetSim object
@@ -28,11 +29,10 @@ using a standard power law function as the spatial interaction function.
 }
 \details{
 The algorithm proceeds in three steps. First, it calculates the
-distance between simulated points from a PointSim object, which includes
-PointProcess and HaltonSeq objects. Then it calculates the distance between
-all pairs of points. Finally, it uses a standard power law function to
-calculate that any two point share a tie. If the threshold is exceeded, a tie
-is created.
+distance between simulated points from a PointSim object. Then it calculates
+the distance between all pairs of points. Finally, it uses a standard power
+law function to calculate that any two point share a tie. If the threshold is
+exceeded, a tie is created.
 }
 \references{
 Butts, Carter T. Spatial models of large-scale interpersonal

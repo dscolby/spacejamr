@@ -10,7 +10,9 @@ as.spacejamr(path)
 \item{path}{the path to a shapefile as a string.}
 }
 \value{
-a spacejamr object
+a spacejamr object containing two items. window: object of class
+'owin' that stores geographical boundaries. crs: integer value referring to
+the coordinate reference system of the geographical boundaries.
 }
 \description{
 Creates a new spacejamr object that for further analysis

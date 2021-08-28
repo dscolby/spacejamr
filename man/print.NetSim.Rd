@@ -12,7 +12,7 @@
 \item{...}{ignored.}
 }
 \value{
-A ggraph object
+No return value, called for sied effects
 }
 \description{
 Plots a NetSim object and returns a ggraph object

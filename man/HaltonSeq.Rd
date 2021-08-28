@@ -14,7 +14,10 @@ HaltonSeq(points, window, seed)
 \item{seed}{an optional seed}
 }
 \value{
-An object of classes HaltonSeq and PointSim
+An object of class PointSim that contains a geographical window of
+class 'owin'. Within this window are four objects. n: the number of simulated
+points. x: the x coordinates of the simulated points. y: the y coordinates of
+the simulated points. markformat: an empty place holder.
 }
 \description{
 Creates a new Halton Sequence in a spacejamr object

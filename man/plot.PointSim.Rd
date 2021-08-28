@@ -18,7 +18,7 @@
 \item{color}{an optional color for the simulated points. Default is red.}
 }
 \value{
-A ggplot2 object
+A plot of classes 'gg' and 'ggplot'
 }
 \description{
 Plots the results of points simulated in a PointProcess or

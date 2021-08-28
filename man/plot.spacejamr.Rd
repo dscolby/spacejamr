@@ -18,7 +18,7 @@
 \item{fill}{an optional fill for the plot. Default is blue.}
 }
 \value{
-A ggplot2 object
+A plot of classes 'gg' and 'ggplot'
 }
 \description{
 Plot method for the spacejamr class

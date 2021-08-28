@@ -12,7 +12,7 @@
 \item{...}{ignored.}
 }
 \value{
-A ggraph object
+No return value, called for side effects
 }
 \description{
 Prints a summary of a NetSim object

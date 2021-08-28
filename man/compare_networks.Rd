@@ -12,7 +12,14 @@ compare_networks(net1, net2)
 \item{net2}{a NetSim object}
 }
 \value{
-A dataframe
+A dataframe with two rows and five columns. The first row displays
+statistics from the first network and the second row displays statistics from
+the second network. The values in each column are as follows. Density: the
+density of the network. Mean Degree: the average degree of all nodes in the
+network. Mean Closeness: the average closeness centrality of all nodes in
+each network. Mean Betweenness: the average betweenness centrality for the
+nodes in a network. Largest Component Size: The number of nodes in the
+largest connected component of a network.
 }
 \description{
 Generates summary statistics for two simulated networks of class

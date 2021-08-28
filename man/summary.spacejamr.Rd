@@ -12,7 +12,7 @@
 \item{...}{ignored.}
 }
 \value{
-No return value
+No return value, called for side effects
 }
 \description{
 Summary method for the spacejamr class
