@@ -26,7 +26,7 @@ install.packages("spacejamr")
 ``` r
 library(spacejamr)
 
-# load Rhode Island dataset
+# Load Rhode Island dataset
 data(RI)
 
 # Spatial Poisson point process
