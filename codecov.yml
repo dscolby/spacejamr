@@ -13,4 +13,6 @@ coverage:
         threshold: 1%
         informational: true
 
-CODECOV_TOKEN='cb85780b-d33d-4b40-851a-cdf3df86a05c'
+
+codecov:
+  token: "cb85780b-d33d-4b40-851a-cdf3df86a05c"
