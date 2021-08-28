@@ -8,7 +8,7 @@ test_that("we can simulate point processes", {
     ri_points <- PointProcess(10, RI)
 
     # Ensure correct class
-    expect_identical(class(ri_points), c("PointProcess", "PointSim"))
+    expect_identical(class(ri_points), "PointSim")
 })
 
 test_that("we can generate a Halton Sequence", {
@@ -16,5 +16,5 @@ test_that("we can generate a Halton Sequence", {
     ri_points <- HaltonSeq(10, RI)
 
     # Ensure correct class
-    expect_identical(class(ri_points), c("HaltonSeq", "PointSim"))
+    expect_identical(class(ri_points), "PointSim")
 })
