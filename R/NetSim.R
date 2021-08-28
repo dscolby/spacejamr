@@ -50,7 +50,7 @@ validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  .name_repair = "unique") %>%
+                                  column_name = c("V1", "V2")) %>%
 
     # Apply the power law function
     dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
@@ -110,11 +110,10 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' @usage PowerLawNetwork(point_sim, base_prob, scale, threshold, power)
 #'
 #' @details The algorithm proceeds in three steps. First, it calculates the
-#' distance between simulated points from a PointSim object, which includes
-#' PointProcess and HaltonSeq objects. Then it calculates the distance between
-#' all pairs of points. Finally, it uses a standard power law function to
-#' calculate that any two point share a tie. If the threshold is exceeded, a tie
-#' is created.
+#' distance between simulated points from a PointSim object. Then it calculates
+#' the distance between all pairs of points. Finally, it uses a standard power
+#' law function to calculate that any two point share a tie. If the threshold is
+#' exceeded, a tie is created.
 #'
 #' @param point_sim a PointSim object
 #' @param base_prob the theoretical probability that two nodes (points) with
@@ -207,7 +206,7 @@ validate_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  .name_repair = "unique") %>%
+                                  column_name = c("V1", "V2")) %>%
 
         # Apply the power law function
         dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
@@ -267,11 +266,10 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' @usage APLNetwork(point_sim, base_prob, scale, threshold, power)
 #'
 #' @details The algorithm proceeds in three steps. First, it calculates the
-#' distance between simulated points from a PointSim object, which includes
-#' PointProcess and HaltonSeq objects. Then it calculates the distance between
-#' all pairs of points. Finally, it uses an attenuated power law function to
-#' calculate that any two point share a tie. If the threshold is exceeded, a tie
-#' is created.
+#' distance between simulated points from a PointSim object. Then it calculates
+#' the distance between all pairs of points. Finally, it uses an attenuated
+#' power law function to calculate that any two point share a tie. If the
+#' threshold is exceeded, a tie is created.
 #'
 #' @param point_sim a PointSim object
 #' @param base_prob the theoretical probability that two nodes (points) with
@@ -335,7 +333,7 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #' @param node_color a color for the nodes. Default is blue.
 #' @param edge_color a color for the edges. Default is red.
 #'
-#' @return A plot of classes 'gg' and 'ggplot'
+#' @return A plot of classes 'ggraph' 'gg' and 'ggplot'
 #'
 #' @examples
 #' # Load spacejamr object

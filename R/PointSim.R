@@ -14,7 +14,7 @@
 # @param a window of class spacejamr to use as the spatial extent
 # @param seed an optional seed
 #
-# @return A validated PointProcess object
+# @return A validated PointSim object
 #
 # @author Darren Colby
 #    Email: dscolby17@gmail.com
@@ -42,7 +42,7 @@ validate_PointProcess <- function(points, window, seed) {
 # @param window a window object of class spacejamr to use as the spatial extent
 # @param seed an optional seed
 #
-# @return An object of classes PointProcess and PointSim
+# @return An object of class PointSim
 #
 # @author Darren Colby
 #    Email: dscolby17@gmail.com
@@ -52,8 +52,7 @@ new_PointProcess <- function(points, window, seed) {
    point_process <- validate_PointProcess(points, window, seed)
 
    # Sets the class
-   validated_process <- structure(point_process,
-                                  class = c("PointProcess", "PointSim"))
+   validated_process <- structure(point_process, class = "PointSim")
 
    return(validated_process)
 
@@ -70,11 +69,10 @@ new_PointProcess <- function(points, window, seed) {
 #' @param window a spacejamr object to use as the spatial extent
 #' @param seed an optional seed
 #'
-#' @return An object of class PointProcess that contains a geographical window
+#' @return An object of class PointSim that contains a geographical window
 #' of class 'owin'. Within this window are four objects. n: the number of
 #' simulated points. x: the x coordinates of the simulated points. y: the y
 #' coordinates of the simulated points. markformat: an empty place holder.
-#' Objects returned by this function inherit methods from the 'PointSim' class.
 #'
 #' @example
 #' # Load spacejamr object
@@ -107,7 +105,7 @@ PointProcess <- function(points, window, seed = NULL) {
 # @param a window of class spacejamr to use as the spatial extent
 # @param seed an optional seed
 #
-# @return A validated HaltonSeq object
+# @return A validated PointSim object
 #
 # @author Darren Colby
 #    Email: dscolby17@gmail.com
@@ -135,7 +133,7 @@ validate_HaltonSeq <- function(points, window, seed) {
 # @param window a window object of class spacejamr to use as the spatial extent
 # @param seed an optional seed
 #
-# @return An object of classes HaltonSeq and PointSim
+# @return An object of class PointSim
 #
 # @author Darren Colby
 #    Email: dscolby17@gmail.com
@@ -143,7 +141,7 @@ new_HaltonSeq <- function(points, window, seed) {
 
    halton <- validate_HaltonSeq(points, window, seed)
 
-   validated_halton <- structure(halton, class = c("HaltonSeq", "PointSim"))
+   validated_halton <- structure(halton, class = "PointSim")
 
 }
 
@@ -164,11 +162,10 @@ new_HaltonSeq <- function(points, window, seed) {
 #' will be generated within a containing rectangle and only those points within
 #' the spacejamr window will be kept.
 #'
-#' @return An object of class HaltonSeq that contains a geographical window of
+#' @return An object of class PointSim that contains a geographical window of
 #' class 'owin'. Within this window are four objects. n: the number of simulated
 #' points. x: the x coordinates of the simulated points. y: the y coordinates of
-#' the simulated points. markformat: an empty place holder. Objects returned by
-#' this function inherit methods from the 'PointSim' class.
+#' the simulated points. markformat: an empty place holder.
 #'
 #' @example
 #' # Load spacejamr object
