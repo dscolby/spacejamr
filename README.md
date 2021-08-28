@@ -11,7 +11,7 @@ The goal of spacejamr is to enable social network analysis where conventional
 collection of social network data would be impossible. It does this by providing
 tools to prepare shapefiles, simulate spatial point processes, generate networks 
 from those point processes using a spatial interaction function. It also 
-contains plot methods that return ggplot2 objects that can be further refined.
+contains plot methods that return 'ggplot2' objects that can be further refined.
 
 ## Installation
 
