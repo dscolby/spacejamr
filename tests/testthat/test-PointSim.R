@@ -5,7 +5,7 @@ data("RI")
 
 test_that("we can simulate point processes", {
 
-    ri_points <- PointProcess(10, RI)
+    ri_points <- PointSim(points = 10, window = RI)
 
     # Ensure correct class
     expect_identical(class(ri_points), "PointSim")
@@ -13,7 +13,7 @@ test_that("we can simulate point processes", {
 
 test_that("we can generate a Halton Sequence", {
 
-    ri_points <- HaltonSeq(10, RI)
+    ri_points <- PointSim(points = 10, window = RI, type = halton)
 
     # Ensure correct class
     expect_identical(class(ri_points), "PointSim")

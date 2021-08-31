@@ -6,7 +6,7 @@ options(warn = -1)
 
 # Load data for the test
 data("RI")
-ri_points <- PointProcess(3, RI)
+ri_points <- PointSim(3, RI)
 pl <- PowerLawNetwork(ri_points)
 apl <- APLNetwork(ri_points)
 

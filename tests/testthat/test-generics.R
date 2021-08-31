@@ -2,7 +2,7 @@ library(spacejamr)
 
 # Load data for the test
 data("RI")
-ri_points <- PointProcess(3, RI)
+ri_points <- PointSim(3, RI)
 pl <- PowerLawNetwork(ri_points)
 
 test_that("we can plot objects created with the spacejamr package", {
