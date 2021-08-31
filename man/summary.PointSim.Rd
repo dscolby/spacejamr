@@ -22,12 +22,12 @@ HaltonSeq object, whcih are both child classes of the PointSim class.
 # Load spacejamr object
 data("RI")
 
-# With PointProcess
-ri_points <- PointProcess(10, RI, 42)
+# With Poisson Process
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
 summary(ri_points)
 
-# With HaltonSeq
-ri_seq <- HaltonSeq(10, RI, 42)
+# With Halton Sequence
+ri_seq <- HaltonSeq(points = 10, window = RI, type = halton, seed = 42)
 summary(ri_seq)
 
 }

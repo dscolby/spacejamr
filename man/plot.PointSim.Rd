@@ -31,12 +31,12 @@ The returned plot can be refined with standard ggplot2 functions
 # Load spacejamr object
 data("RI")
 
-# With PointProcess
-ri_points <- PointProcess(10, RI, 42)
+# With Poisson process
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
 plot(ri_points)
 
-# With HaltonSeq
-ri_seq <- HaltonSeq(10, RI, 42)
+# With Halton Sequence
+ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 42)
 plot(ri_seq)
 
 }
