@@ -1,20 +1,24 @@
 # Author: Darren Colby
-# Date: 8/27/2021
+# Date: 8/31/2021
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------
 
 
-# validate_spacejamr
-#
-# @description Validates the input to the spacejamr constructor.
-#
-# @details This function should not be called directly
-#
-# @param path the path to a shapefile as a string.
-#
-# @return A list containing a window object of class "owin" and the crs.
-# @Author Darren Colby
+#' validate_spacejamr
+#'
+#' @description Validates the input to the spacejamr constructor.
+#'
+#' @usage validate_spacejamr(path)
+#'
+#' @details This function should not be called directly
+#'
+#' @param path the path to a shapefile as a string.
+#'
+#' @return A list containing a window object of class "owin" and the crs.
+#' @Author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 validate_spacejamr <- function(path) {
 
    stopifnot(is.character(path))
@@ -34,18 +38,23 @@ validate_spacejamr <- function(path) {
 }
 
 
-# new_spacejamr
-#
-# @description Create a new spacejamr object
-#
-# @details This function should not be called by the user
-#
-# @param path the path to a shapefile as a string.
-
-# @return a spacejamr object
-
-# @Author Darren Colby
-#    Email: dscolby17@gmail.com
+#' new_spacejamr
+#'
+#' @description Create a new spacejamr object
+#'
+#' @usage new_spacejamr(path)
+#'
+#' @details This function should not be called by the user
+#'
+#' @param path the path to a shapefile as a string.
+#'
+#' @return a spacejamr object containing two items. window: object of class
+#' 'owin' that stores geographical boundaries. crs: integer value referring to
+#' the coordinate reference system of the geographical boundaries.
+#'
+#' @Author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 new_spacejamr <- function(path) {
 
    # Validate the input

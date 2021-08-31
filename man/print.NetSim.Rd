@@ -17,23 +17,6 @@ No return value, called for sied effects
 \description{
 Plots a NetSim object and returns a ggraph object
 }
-\examples{
-# Create spacejamr object
-data("RI")
-
-# With PointProcess
-ri_points <- PointProcess(10, RI, 42)
-apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
-                         threshold = 0.5, power = -2.4)
-print(apl_points)
-
-# With HaltonSeq
-ri_seq <- HaltonSeq(10, RI, 42)
-apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
-                      threshold = 0.5, power = -1.87)
-print(apl_seq)
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

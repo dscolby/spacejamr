@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/27/2021
+# Date: 8/31/2021
 # Purpose: To simulate spatial Bernoulli networks
 
 # Contructor methods to simulate a standard power law network -------------
@@ -8,6 +8,7 @@
 # Validate input to a PowerLawNetwork constructor
 #
 # @description validates a spatial Bernoulli network using a standard power law
+#
 #
 # @details This function should not be called by the user
 #
@@ -88,7 +89,7 @@ validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 # @return An igraph object
 #
 # @author Darren Colby
-#    Email: dscolby17@gmail.com
+# Email: dscolby17@gmail.com
 new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 
     validated_network <- validate_PowerLawNetwork(point_sim, base_prob, scale,
@@ -130,15 +131,9 @@ new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With PointProcess
-#' ri_points <- PointProcess(10, RI, 42)
+#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' power_law <- PowerLawNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                              threshold = 0.5, power = -2.4)
-#'
-#' # With HaltonSeq
-#' ri_seq <- HaltonSeq(10,RI, 42)
-#' power_law <- PowerLawNetwork(ri_seq, base_prob = 0.98, scale = 100,
-#'                              threshold = 0.5, power = -1.87)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -286,15 +281,9 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With PointProcess
-#' ri_points <- PointProcess(10, RI, 42)
+#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
-#'
-#' # With HaltonSeq
-#' ri_seq <- HaltonSeq(10,RI, 42)
-#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
-#'                       threshold = 0.5, power = -1.87)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -335,21 +324,14 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #'
 #' @return A plot of classes 'ggraph' 'gg' and 'ggplot'
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With PointProcess
-#' ri_points <- PointProcess(10, RI, 42)
+#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' plot(apl_points)
-#'
-#' # With HaltonSeq
-#' ri_seq <- HaltonSeq(10, RI, 42)
-#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
-#'                       threshold = 0.5, power = -1.87)
-#' plot(apl_seq)
 #'
 #' @author Darren Colby \cr
 #' Email:dscolby17@@gmail.com
@@ -382,21 +364,14 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @return No return value, called for sied effects
 #'
-#' @examples
+#' @example
 #' # Create spacejamr object
 #' data("RI")
 #'
-#' # With PointProcess
-#' ri_points <- PointProcess(10, RI, 42)
+#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' print(apl_points)
-#'
-#' # With HaltonSeq
-#' ri_seq <- HaltonSeq(10, RI, 42)
-#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
-#'                       threshold = 0.5, power = -1.87)
-#' print(apl_seq)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -418,21 +393,14 @@ print.NetSim <- function(x, ...) {
 #'
 #' @return No return value, called for side effects
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With PointProcess
-#' ri_points <- PointProcess(10, RI, 42)
+#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
 #'                          threshold = 0.5, power = -2.4)
 #' summary(apl_points)
-#'
-#' # With HaltonSeq
-#' ri_seq <- HaltonSeq(1000, RI, 42)
-#' apl_seq <- APLNetwork(ri_seq, base_prob = 0.98, scale = 100,
-#'                       threshold = 0.5, power = -1.87)
-#' summary(apl_seq)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com

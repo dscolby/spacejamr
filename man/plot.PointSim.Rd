@@ -27,19 +27,6 @@ HaltonSeq class, whcih obht inherit methods from the PointSim class.
 \details{
 The returned plot can be refined with standard ggplot2 functions
 }
-\examples{
-# Load spacejamr object
-data("RI")
-
-# With Poisson process
-ri_points <- PointSim(points = 10, window = RI, seed = 42)
-plot(ri_points)
-
-# With Halton Sequence
-ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 42)
-plot(ri_seq)
-
-}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

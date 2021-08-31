@@ -5,20 +5,23 @@
 # Helper functions for the PointSim class ---------------------------------
 
 
-# Simulate a Poisson point process
-#
-# @description helper function to simulate a Poisson point process
-#
-# @details This function should not be called directly
-#
-# @param n the number of points to simulate
-# @param win a window of class spacejamr to use as the spatial extent
-#
-# @return A ppp object from the 'spatstat.core' package that contains
-# contains simulated points
-#
-# @author Darren Colby
-# Email: dscolby17@gmail.com
+#' Simulate a Poisson point process
+#'
+#' @description helper function to simulate a Poisson point process
+#'
+#' @usage poisson_process(n, win)
+#'
+#' @details This function should not be called directly
+#'
+#' @param n the number of points to simulate
+#' @param win a window of class spacejamr to use as the spatial extent
+#'
+#' @return A ppp object from the 'spatstat.core' package that contains
+#' simulated points
+#'
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 poisson_process <- function(n, win) {
 
    # Homogeneous point process
@@ -29,20 +32,23 @@ poisson_process <- function(n, win) {
 }
 
 
-# Simulate a 2D Halton Sequence
-#
-# @description helper function to simulate a 2D Halton Sequence
-#
-# @details This function should not be called directly
-#
-# @param n the number of points to simulate
-# @param win a window of class spacejamr to use as the spatial extent
-#
-# @return A ppp object from the 'spatstat.geom' package that contains
-# contains simulated points
-#
-# @author Darren Colby
-# Email: dscolby17@gmail.com
+#' Simulate a 2D Halton Sequence
+#'
+#' @description helper function to simulate a 2D Halton Sequence
+#'
+#' @usage halton(n, win)
+#'
+#' @details This function should not be called directly
+#'
+#' @param n the number of points to simulate
+#' @param win a window of class spacejamr to use as the spatial extent
+#'
+#' @return A ppp object from the 'spatstat.geom' package that contains
+#' contains simulated points
+#'
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 halton <- function(n, win) {
 
    # Simulates the Halton sequence
@@ -55,20 +61,23 @@ halton <- function(n, win) {
 
 # Constructor methods for the PointSim class ------------------------------
 
-# Validate the input to an instance of a PointSim class
-#
-# @description validates the input from the PointProcess constructors
-#
-# @details This function should not be called directly
-#
-# @param points the number of points to simulate
-# @param a window of class spacejamr to use as the spatial extent
-# @param seed an optional seed
-#
-# @return A validated PointSim object
-#
-# @author Darren Colby
-# Email: dscolby17@gmail.com
+#' Validate the input to an instance of a PointSim class
+#'
+#' @description validates the input from the PointProcess constructors
+#'
+#' @usage validate_PointSim(points, window, type, seed)
+#'
+#' @details This function should not be called directly
+#'
+#' @param points the number of points to simulate
+#' @param a window of class spacejamr to use as the spatial extent
+#' @param seed an optional seed
+#'
+#' @return A ppp object from the 'spatstat.core' package
+#'
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 validate_PointSim <- function(points, window, type, seed) {
 
    stopifnot(methods::is(window, c("spacejamr", "owin")))
@@ -83,20 +92,26 @@ validate_PointSim <- function(points, window, type, seed) {
 }
 
 
-# Validate and set the class attribute of inputs to the PointProcess constructor
-#
-# @description Creates a new PointProcess object
-#
-# @details This function should not be called directly
-#
-# @param points the number of points to simulate
-# @param window a window object of class spacejamr to use as the spatial extent
-# @param seed an optional seed
-#
-# @return An object of class PointSim
-#
-# @author Darren Colby
-#    Email: dscolby17@gmail.com
+#' Validate and set the class attribute of inputs to the PointProcess constructor
+#'
+#' @description Creates a new PointProcess object
+#'
+#' @usage new_PointSim(points, window, type, seed)
+#'
+#' @details This function should not be called directly
+#'
+#' @param points the number of points to simulate
+#' @param window a window object of class spacejamr to use as the spatial extent
+#' @param seed an optional seed
+#'
+#' @return An object of class PointSim that contains a geographical window
+#' of class 'owin'. Within this window are four objects. n: the number of
+#' simulated points. x: the x coordinates of the simulated points. y: the y
+#' coordinates of the simulated points. markformat: an empty place holder.
+#'
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
 new_PointSim <- function(points, window, type, seed) {
 
    # Validates the input
@@ -114,13 +129,13 @@ new_PointSim <- function(points, window, type, seed) {
 #'
 #' @description Creates a new Poisson Point Process in a spacejamr object
 #'
-#' @usage PointProcess(points, window, seed)
+#' @usage PointSim(points, window, type, seed)
 #'
 #' @param points the number of points to simulate
 #' @param window a spacejamr object to use as the spatial extent
-#' @param type the type of simuation. poisson_process simulates a spatial
-#' Poisson process. halton simulates a Halton sequence with the maximal number
-#' of points being the number passed as the first argument.
+#' @param type the type of simulation. poisson_process simulates a spatial
+#' Poisson process. halton simulates a Halton sequence where the maximal number
+#' of simulated points is the first argument.
 #' @param seed an optional seed
 #'
 #' @return An object of class PointSim that contains a geographical window
@@ -128,15 +143,12 @@ new_PointSim <- function(points, window, type, seed) {
 #' simulated points. x: the x coordinates of the simulated points. y: the y
 #' coordinates of the simulated points. markformat: an empty place holder.
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
 #' # Poisson process
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#'
-#' # Halton Sequence
-#' ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 9)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -168,17 +180,12 @@ PointSim <- function(points, window, type = poisson_process, seed = NULL) {
 #'
 #' @return A plot of classes 'gg' and 'ggplot'
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With Poisson process
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' plot(ri_points)
-#'
-#' # With Halton Sequence
-#' ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 42)
-#' plot(ri_seq)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -212,17 +219,12 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #'
 #' @return No return value, called for side effects
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With Poisson process
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' print(ri_points)
-#'
-#' # With Halton Sequence
-#' ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 42)
-#' print(ri_seq)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -247,17 +249,12 @@ print.PointSim <- function(x, ...) {
 #'
 #' @return No return value, called for side effects
 #'
-#' @examples
+#' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
-#' # With Poisson Process
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
 #' summary(ri_points)
-#'
-#' # With Halton Sequence
-#' ri_seq <- HaltonSeq(points = 10, window = RI, type = halton, seed = 42)
-#' summary(ri_seq)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com

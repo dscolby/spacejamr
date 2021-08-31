@@ -4,16 +4,16 @@
 \alias{PointSim}
 \title{Simulate a spatial point process or sequence}
 \usage{
-PointProcess(points, window, seed)
+PointSim(points, window, type, seed)
 }
 \arguments{
 \item{points}{the number of points to simulate}
 
 \item{window}{a spacejamr object to use as the spatial extent}
 
-\item{type}{the type of simuation. poisson_process simulates a spatial
-Poisson process. halton simulates a Halton sequence with the maximal number
-of points being the number passed as the first argument.}
+\item{type}{the type of simulation. poisson_process simulates a spatial
+Poisson process. halton simulates a Halton sequence where the maximal number
+of simulated points is the first argument.}
 
 \item{seed}{an optional seed}
 }
@@ -25,17 +25,6 @@ coordinates of the simulated points. markformat: an empty place holder.
 }
 \description{
 Creates a new Poisson Point Process in a spacejamr object
-}
-\examples{
-# Load spacejamr object
-data("RI")
-
-# Poisson process
-ri_points <- PointSim(points = 10, window = RI, seed = 42)
-
-# Halton Sequence
-ri_seq <- PointSim(points = 10, window = RI, type = halton, seed = 9)
-
 }
 \author{
 Darren Colby \cr
