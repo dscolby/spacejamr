@@ -4,7 +4,7 @@
 \alias{summary.NetSim}
 \title{Summary of NetSim graphs}
 \usage{
-summary(object)
+\method{summary}{NetSim}(object, ...)
 }
 \arguments{
 \item{object}{a NetSim object}

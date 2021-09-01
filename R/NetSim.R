@@ -153,8 +153,6 @@ NetSim <- function(point_sim, sif = standard, base_prob = 0.9, scale = 1,
 #' @description This can take either a PowerLawNetwork or APLNetwork object as
 #' input, both of which are chidren of the NetSim class.
 #'
-#' @usage plot(x)
-#'
 #' @details This method returns a ggraph object, which can be further refined
 #' using standard ggraph and ggplot facilities.
 #'
@@ -204,8 +202,6 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @description Plots a NetSim object and returns a ggraph object
 #'
-#' @usage print(x)
-#'
 #' @param x a NetSim object
 #' @param ... ignored.
 #'
@@ -234,8 +230,6 @@ print.NetSim <- function(x, ...) {
 #' Summary of NetSim graphs
 #'
 #' @description Prints a summary of a NetSim object
-#'
-#' @usage summary(object)
 #'
 #' @param object a NetSim object
 #' @param ... ignored.

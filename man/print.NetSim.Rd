@@ -4,7 +4,7 @@
 \alias{print.NetSim}
 \title{Print information from a NetSim object}
 \usage{
-print(x)
+\method{print}{NetSim}(x, ...)
 }
 \arguments{
 \item{x}{a NetSim object}

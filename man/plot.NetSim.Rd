@@ -4,7 +4,15 @@
 \alias{plot.NetSim}
 \title{Plot a simulated network from a NetSim object}
 \usage{
-plot(x)
+\method{plot}{NetSim}(
+  x,
+  y,
+  ...,
+  layout = "stress",
+  title = "Network Simulation",
+  node_color = "red",
+  edge_color = "blue"
+)
 }
 \arguments{
 \item{x}{a NetSim graph}
