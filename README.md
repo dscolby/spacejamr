@@ -1,5 +1,5 @@
 
-# spacejamr: Simulate spatial Bernoulli networks
+# spacejamr: Simulate Spatial Bernoulli Networks
 
 <!-- badges: start -->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/dscolby/spacejamr?branch=master&svg=true)](https://ci.appveyor.com/project/dscolby/spacejamr)

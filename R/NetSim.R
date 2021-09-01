@@ -205,7 +205,7 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #' @param x a NetSim object
 #' @param ... ignored.
 #'
-#' @return No return value, called for sied effects
+#' @return No return value, called for side effects
 #'
 #' @example
 #' # Create spacejamr object
