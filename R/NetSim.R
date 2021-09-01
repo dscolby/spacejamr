@@ -105,8 +105,11 @@ new_NetSim <- function(point_sim, sif, base_prob, scale, threshold, power) {
 #' threshold is exceeded, a tie is created.
 #'
 #' @param point_sim a PointSim object
-#' @param sif the spatial interaction function to use. Default is a standard
-#' power law function.
+#' @param sif the spatial interaction function to use. Use attenuated to use an
+#' attenuated power law; arctan to use an arctangent probability law; decay to
+#' use an exponential decay law; or logistic to use a logistic probability law.
+#' Default is a standard power law function.
+#'
 #' @param base_prob the theoretical probability that two nodes (points) with
 #' distance 0 share a tie. Default is 0.9.
 #' @param scale a coefficient to multiply the distance by. Default is 1.
