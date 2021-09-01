@@ -21,7 +21,7 @@
 #' simulated points
 #'
 #' @author Darren Colby
-#' Email: dscolby17@gmail.com
+#' Email: dscolby17@@gmail.com
 #' @noRd
 poisson_process <- function(n, win) {
 
@@ -48,7 +48,7 @@ poisson_process <- function(n, win) {
 #' contains simulated points
 #'
 #' @author Darren Colby
-#' Email: dscolby17@gmail.com
+#' Email: dscolby17@@gmail.com
 #' @noRd
 halton <- function(n, win) {
 

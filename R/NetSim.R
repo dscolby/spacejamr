@@ -2,62 +2,46 @@
 # Date: 8/31/2021
 # Purpose: To simulate spatial Bernoulli networks
 
-# Contructor methods to simulate a standard power law network -------------
+# Constructor methods to simulate a standard power law network ------------
 
 
-# Validate input to a PowerLawNetwork constructor
-#
-# @description validates a spatial Bernoulli network using a standard power law
-#
-#
-# @details This function should not be called by the user
-#
-# @param point_sim a PointSim object
-# @param base_prob the theoretical probability that two nodes (points) with
-# distance 0 share a tie.
-# @param scale a coefficient to multiply the distance by.
-# @param threshold if two node exceed this probability, they will be coded as
-# having a tie.
-# @param power the exponent at which tie probability decays.
-#
-# @return An igraph object
-#
-# @author Darren Colby
-#    Email: dscolby17@gmail.com
-validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
-                                     threshold = 0.5, power = -2.8) {
+#' Validate input to a NetSim constructor
+#'
+#' @description validates a spatial Bernoulli network
+#'
+#' @usage validate_NetSim(point_sm, sif, base_prob, scale, threshold, power)
+#'
+#' @details This function should not be called by the user
+#'
+#' @param point_sim a PointSim object
+#' @param sif the spatial interaction function to use
+#' @param base_prob the theoretical probability that two nodes (points) with
+#' distance 0 share a tie.
+#' @param scale a coefficient to multiply the distance by.
+#' @param threshold if two node exceed this probability, they will be coded as
+#' having a tie.
+#' @param power the exponent at which tie probability decays.
+#'
+#' @return An igraph object
+#'
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
+validate_NetSim <- function(point_sim, sif, base_prob, scale, threshold, power) {
 
     # Ensures proper input
     stopifnot(methods::is(point_sim, "PointSim"))
-
-
-    # Helper function to estimate the probability of a tie with given parameters
-    ProbabilityFunction <- function(dist) {
-
-        prob <- (base_prob/((1 + (scale * dist)) ^ abs(power)))
-
-        return(prob)
-
-    }
-
-
-    # Helper function to create ties if tie probability exceeds the threshold
-    ThresholdFunction <- function(prob) {
-
-        ifelse(prob > threshold, 1, 0)
-
-    }
-
 
     # Calculate the distance between all pairs of nodes
     distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
                                   column_name = c("V1", "V2")) %>%
 
     # Apply the power law function
-    dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
+    dplyr::mutate(dplyr::across(.fns = sif, base_prob = base_prob,
+                                scale = scale, power = power),
 
     # Code as a tie if the probability exceeds the given threshold
-    dplyr::across(.fns = ThresholdFunction)) %>%
+    dplyr::across(.fns = function(prob){ifelse(prob > threshold, 1, 0)})) %>%
 
     # This is just a good practice
     dplyr::ungroup() %>%
@@ -72,201 +56,57 @@ validate_PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 }
 
 
-# Validate and set class attribute of input to the PowerLawNetwork constructor
-#
-# @description creates a spatial Bernoulli network using a standard power law
-#
-# @details This function should not be called by the user
-#
-# @param point_sim a PointSim object
-# @param base_prob the theoretical probability that two nodes (points) with
-# distance 0 share a tie.
-# @param scale a coefficient to multiply the distance by.
-# @param threshold if two node exceed this probability, they will be coded as
-# having a tie.
-# @param power the exponent at which tie probability decays.
-#
-# @return An igraph object
-#
-# @author Darren Colby
-# Email: dscolby17@gmail.com
-new_PowerLawNetwork <- function(point_sim, base_prob, scale, threshold, power) {
-
-    validated_network <- validate_PowerLawNetwork(point_sim, base_prob, scale,
-                                                  threshold, power)
-
-    validated_network <- structure(validated_network, class = c("NetSim",
-                                                                "igraph"))
-
-    return(validated_network)
-
-}
-
-
-#' Simulate a power law network
+#' Validate and set class attribute of input to the NetSim constructor
 #'
-#' @description Simulates a spatial Bernoulli network from a NetSim object
-#' using a standard power law function as the spatial interaction function.
+#' @description creates a spatial Bernoulli network using a standard power law
 #'
-#' @usage PowerLawNetwork(point_sim, base_prob, scale, threshold, power)
+#' @usage new_NetSim(point_sim, sif, base_prob, scale, threshold, power)
 #'
-#' @details The algorithm proceeds in three steps. First, it calculates the
-#' distance between simulated points from a PointSim object. Then it calculates
-#' the distance between all pairs of points. Finally, it uses a standard power
-#' law function to calculate that any two point share a tie. If the threshold is
-#' exceeded, a tie is created.
+#' @details This function should not be called by the user
 #'
 #' @param point_sim a PointSim object
+#' @param sif a spatial interaction function
 #' @param base_prob the theoretical probability that two nodes (points) with
-#' distance 0 share a tie. Default is 0.9.
-#' @param scale a coefficient to multiply the distance by. Default is 1.
+#' distance 0 share a tie.
+#' @param scale a coefficient to multiply the distance by.
 #' @param threshold if two node exceed this probability, they will be coded as
-#' having a tie. Default is 0.5.
-#' @param power the exponent at which tie probability decays. Default is -2.8.
+#' having a tie.
+#' @param power the exponent at which tie probability decays.
 #'
-#' @return A network object of class 'igraph' that can be manipulated using the
-#' 'igraph' package.
+#' @return An object of classes 'NetSim' and 'igraph' that can be further
+#' manipulated with 'igraph' functions and methods
 #'
-#' @example
-#' # Load spacejamr object
-#' data("RI")
-#'
-#' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#' power_law <- PowerLawNetwork(ri_points, base_prob = 0.92, scale = 1,
-#'                              threshold = 0.5, power = -2.4)
-#'
-#' @author Darren Colby \cr
-#' Email: dscolby17@@gmail.com
-#'
-#' @references Butts, Carter T. Spatial models of large-scale interpersonal
-#' networks. Dissertation. (2002).
-#' @export
-PowerLawNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
-                            threshold = 0.5, power = -2.8) {
+#' @author Darren Colby
+#' Email: dscolby17@gmail.com
+#' @noRd
+new_NetSim <- function(point_sim, sif, base_prob, scale, threshold, power) {
 
-    validated_network <- new_PowerLawNetwork(point_sim, base_prob, scale,
-                                             threshold, power)
+    validated_net <- validate_NetSim(point_sim, sif, base_prob, scale,
+                                     threshold, power)
 
-    return(validated_network)
+    validated_net <- structure(validated_net, class = c("NetSim", "igraph"))
+
+    return(validated_net)
 
 }
 
 
-# Attenuated power law network generator ----------------------------------
-
-
-# Validate inputs to an APLNetwork constructor
-#
-# @description validates a spatial Bernoulli network using an attenuated power
-# law
-#
-# @details This function should not be called by the user
-#
-# @param point_sim a PointSim object
-# @param base_prob the theoretical probability that two nodes (points) with
-# distance 0 share a tie.
-# @param scale a coefficient to multiply the distance by.
-# @param threshold if two node exceed this probability, they will be coded as
-# having a tie.
-# @param power the exponent at which tie probability decays.
-#
-# @return An igraph object
-#
-# @author Darren Colby
-#    Email: dscolby17@gmail.com
-validate_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
-
-    stopifnot(methods::is(point_sim, "PointSim"))
-
-
-    # Helper function to estimate the probability of a tie with given parameters
-    ProbabilityFunction <- function(dist) {
-
-        # Attenuated power law
-        prob <- (base_prob / (1 + (scale * dist) ^ abs(power)))
-
-
-        return(prob)
-
-    }
-
-
-    # Helper function to create ties if tie probability exceeds the threshold
-    ThresholdFunction <- function(prob) {
-
-        ifelse(prob > threshold, 1, 0)
-
-    }
-
-
-    # Calculate the distance between all pairs of nodes
-    distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  column_name = c("V1", "V2")) %>%
-
-        # Apply the power law function
-        dplyr::mutate(dplyr::across(.fns = ProbabilityFunction),
-
-        # Code as a tie if the probability exceeds the given threshold
-        dplyr::across(.fns = ThresholdFunction)) %>%
-
-        # This is just a good practice
-        dplyr::ungroup() %>%
-        as.matrix()
-
-    simulated_network <- igraph::graph_from_adjacency_matrix(distances,
-                                                             mode = "undirected") %>%
-        igraph::simplify() # Removes self loops
-
-    return(simulated_network)
-
-}
-
-
-# Validate and set class attribute to input passed to APLNetwork
-#
-# @description creates a spatial Bernoulli network using an attenuated power law
-#
-# @details This function should not be called by the user
-#
-# @param point_sim a PointSim object
-# @param base_prob the theoretical probability that two nodes (points) with
-# distance 0 share a tie.
-# @param scale a coefficient to multiply the distance by.
-# @param threshold if two node exceed this probability, they will be coded as
-# having a tie.
-# @param power the exponent at which tie probability decays.
-#
-# @return An igraph object
-#
-# @author Darren Colby
-#    Email: dscolby17@gmail.com
-new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
-
-    validated_network <- validate_APLNetwork(point_sim, base_prob, scale,
-                                             threshold, power)
-
-    validated_network <- structure(validated_network, class = c("NetSim",
-                                                                "igraph"))
-
-    return(validated_network)
-
-}
-
-
-#' Simulate an attenuated power law network
+#' Simulate a network from a point process or sequence
 #'
 #' @description Simulates a spatial Bernoulli network from a NetSim object
-#' using an attenuated power law function as the spatial interaction function.
+#' using one of six probability law distributions.
 #'
-#' @usage APLNetwork(point_sim, base_prob, scale, threshold, power)
+#' @usage NetSim(point_sim, sif, base_prob, scale, threshold, power)
 #'
 #' @details The algorithm proceeds in three steps. First, it calculates the
 #' distance between simulated points from a PointSim object. Then it calculates
-#' the distance between all pairs of points. Finally, it uses an attenuated
-#' power law function to calculate that any two point share a tie. If the
+#' the distance between all pairs of points. Finally, it uses a spatial
+#' interaction function to calculate that any two point share a tie. If the
 #' threshold is exceeded, a tie is created.
 #'
 #' @param point_sim a PointSim object
+#' @param sif the spatial interaction function to use. Default is a standard
+#' power law function.
 #' @param base_prob the theoretical probability that two nodes (points) with
 #' distance 0 share a tie. Default is 0.9.
 #' @param scale a coefficient to multiply the distance by. Default is 1.
@@ -274,16 +114,16 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' having a tie. Default is 0.5.
 #' @param power the exponent at which tie probability decays. Default is -2.8.
 #'
-#' @return A network object of class 'igraph' that can be manipulated using the
-#' 'igraph' package.
+#' @return A network object of class 'NetSim' and 'igraph' that can be
+#' manipulated using the igraph' package.
 #'
 #' @example
 #' # Load spacejamr object
 #' data("RI")
 #'
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
-#'                          threshold = 0.5, power = -2.4)
+#' power_law <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+#'                     power = -2.4)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -291,13 +131,13 @@ new_APLNetwork <- function(point_sim, base_prob, scale, threshold, power) {
 #' @references Butts, Carter T. Spatial models of large-scale interpersonal
 #' networks. Dissertation. (2002).
 #' @export
-APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
-                       threshold = 0.5, power = -2.8) {
+NetSim <- function(point_sim, sif = standard, base_prob = 0.9, scale = 1,
+                   threshold = 0.5, power = -2.8) {
 
-    validated_network <- new_APLNetwork(point_sim, base_prob, scale, threshold,
-                                        power)
+    validated_net <- new_NetSim(point_sim, sif, base_prob, scale, threshold,
+                                power)
 
-    return(validated_network)
+    return(validated_net)
 
 }
 
@@ -309,6 +149,8 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #'
 #' @description This can take either a PowerLawNetwork or APLNetwork object as
 #' input, both of which are chidren of the NetSim class.
+#'
+#' @usage plot(x)
 #'
 #' @details This method returns a ggraph object, which can be further refined
 #' using standard ggraph and ggplot facilities.
@@ -329,9 +171,9 @@ APLNetwork <- function(point_sim, base_prob = 0.9, scale = 1,
 #' data("RI")
 #'
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
-#'                          threshold = 0.5, power = -2.4)
-#' plot(apl_points)
+#' spl_points <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+#'                      power = -2.4)
+#' plot(spl_points)
 #'
 #' @author Darren Colby \cr
 #' Email:dscolby17@@gmail.com
@@ -359,6 +201,8 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @description Plots a NetSim object and returns a ggraph object
 #'
+#' @usage print(x)
+#'
 #' @param x a NetSim object
 #' @param ... ignored.
 #'
@@ -369,9 +213,9 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #' data("RI")
 #'
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
-#'                          threshold = 0.5, power = -2.4)
-#' print(apl_points)
+#' spl_points <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+#'                      power = -2.4)
+#' print(spl_points)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
@@ -388,6 +232,8 @@ print.NetSim <- function(x, ...) {
 #'
 #' @description Prints a summary of a NetSim object
 #'
+#' @usage summary(object)
+#'
 #' @param object a NetSim object
 #' @param ... ignored.
 #'
@@ -398,9 +244,9 @@ print.NetSim <- function(x, ...) {
 #' data("RI")
 #'
 #' ri_points <- PointSim(points = 10, window = RI, seed = 42)
-#' apl_points <- APLNetwork(ri_points, base_prob = 0.92, scale = 1,
-#'                          threshold = 0.5, power = -2.4)
-#' summary(apl_points)
+#' spl_points <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+#'                      power = -2.4)
+#' summary(spl_points)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
