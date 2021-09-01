@@ -8,20 +8,18 @@ Authors@R:
            email = "dscolby17@gmail.com",
            comment = c(ORCID = "0000-0001-8468-2755"))
 Maintainer: Darren Colby <dscolby17@gmail.com>
-Description: Social network analysis is becoming increasingly popular in many
-    social science disciplines, but access to useful network data, especially 
-    among marginalized populations, still remains a large obstacle. Using this 
-    package, it is possible to mitigate this problem by simulating spatial 
-    Bernoulli networks as originally proposed in Carter T. Butts 
-    (2002, ISBN:978-0-493-72676-2), "Spatial models of large-scale interpersonal 
-    networks. To that end, this package enables network analysts to simulate 
-    spatial Bernoulli networks by generating a spatial point process or sequence 
-    with a given number of "nodes" or points in a given geographical area; 
-    calculate the probability that any two nodes share a tie using either a 
-    standard power law or attenuated power law spatial interaction function; and 
-    generate a network object. Additionally, the package provides simple to use 
-    plotting methods for its classes that return plots which can be further 
-    refined with the 'ggplot2' package.
+Description: Social network analysis is becoming commonplace in many social 
+    science disciplines, but access to useful network data, especially 
+    among marginalized populations, still remains a formidable challenge. 
+    This package mitigates that problem by providing tools to simulate spatial 
+    Bernoulli networks as proposed in Carter T. Butts 
+    (2002, ISBN:978-0-493-72676-2), "Spatial models of large-scale interpersonal            networks. Using this package, network analysts can simulate a spatial point 
+    process or sequence with a given number of nodes inside a geographical 
+    boundary and estimate the probability of a tie formation between all node 
+    pairs. When simulating a network, an analyst can choose between five spatial
+    interaction functions. The package also enables quick comparison of summary             statistics for simulated networks and provides simple to use plotting 
+    methods for its classes that return plots which can be further refined with 
+    the 'ggplot2' package.
 License: MIT + file LICENSE
 URL: https://github.com/dscolby/spacejamr
 BugReports: https://github.com/dscolby/spacejamr/issues
