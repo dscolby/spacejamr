@@ -41,12 +41,28 @@ ri_seq <- haltonSeq(points = 5000, window = RI, seed = 9)
 
 ``` r
 # Standard power law SIF
-rinet_standard <- PowerLawNetwork(point_process = ri_points, base_prob = 0.95, 
-                                  scale = 100, threshold = 0.5, power = -2.3)
+rinet_standard <- NetSim(point_process = ri_points, base_prob = 0.95, 
+                         scale = 100, threshold = 0.5, power = -2.3)
 
 # Attenuated power law SIF
-rinet_apl <- APLNetwork(point_process = ri_points, base_prob = 0.93,
-                        scale = 100, threshold = 0.5, power = -1.9)
+rinet_apl <- NetSim(point_process = ri_points, type = attenuated,
+                    base_prob = 0.93, scale = 100, threshold = 0.5, 
+                    power = -1.9)
+
+# Arctangent probability law SIF
+rinet_arctan <- NetSim(point_process = ri_points, type = arctan,
+                    base_prob = 0.93, scale = 100, threshold = 0.5, 
+                    power = -1.9)
+                    
+# Exponential decay law SIF
+rinet_arctan <- NetSim(point_process = ri_points, type = decay,
+                    base_prob = 0.93, scale = 100, threshold = 0.5, 
+                    power = -1.9)
+                    
+# Logistic probability law SIF
+rinet_arctan <- NetSim(point_process = ri_points, type = logistic,
+                    base_prob = 0.93, scale = 100, threshold = 0.5, 
+                    power = -1.9)
 
 ```
 
