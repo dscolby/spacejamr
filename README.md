@@ -91,7 +91,7 @@ compare_networks(rinet_standard, rinet_apl)
 
 ## About
 Creator: Darren Colby\
-Creater ORCID: 0000-0001-8468-2755
+Creater ORCID: 0000-0001-8468-2755\
 Maintainer: Darren Colby\
 Maintainer email: dscolby17@gmail.com\
 Current version: 0.1\
