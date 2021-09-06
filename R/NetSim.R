@@ -179,7 +179,6 @@ NetSim <- function(point_sim, sif = standard, base_prob = 0.9, scale = 1,
 #' @author Darren Colby \cr
 #' Email:dscolby17@@gmail.com
 #'
-#' @seealso [ggraph::ggraph()]
 #' @export
 plot.NetSim <- function(x, y, ..., layout = "stress",
                         title = "Network Simulation", node_color = "red",

@@ -52,7 +52,7 @@ plot(spl_points)
 
 }
 \seealso{
-\code{\link[ggraph:ggraph]{ggraph::ggraph()}}
+\code{\link[=ggraph]{ggraph()}}
 }
 \author{
 Darren Colby \cr
