@@ -21,6 +21,13 @@ Print method for the spacejamr class
 Provides a wrapper for the print.owin method in the spatstats.geom
 package.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+print(RI)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

@@ -35,6 +35,20 @@ spatial interaction functions. The density, mean degree, mean closeness, mean
 betweenness, and the size of the largest connected component are computed for
 each network.
 }
+\examples{
+# load data
+data("RI")
+
+# Simulate point process
+ri_points <- PointProcess(10, RI)
+
+# Create two networks
+pl <- PowerLawNetwork(ri_points) # Standard power law
+apl <- APLNetwork(ri_points) # Attenuated power law
+
+compare_networks(pl, apl)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

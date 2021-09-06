@@ -26,6 +26,13 @@ Plot method for the spacejamr class
 \details{
 The returned plot can be refined with standard ggplot2 functions
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+plot(RI)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

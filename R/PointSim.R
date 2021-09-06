@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/31/2021
+# Date: 9/6/2021
 # Purpose: To simulate spatial point processes
 
 # Constructor methods for the PointSim class ------------------------------
@@ -86,7 +86,7 @@ new_PointSim <- function(points, window, type, seed) {
 #' simulated points. x: the x coordinates of the simulated points. y: the y
 #' coordinates of the simulated points. markformat: an empty place holder.
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -123,7 +123,7 @@ PointSim <- function(points, window, type = poisson_process, seed = NULL) {
 #'
 #' @return A plot of classes 'gg' and 'ggplot'
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -162,7 +162,7 @@ plot.PointSim <- function(x, y, ..., title = "Simulated Points", color = "red") 
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -192,7 +192,7 @@ print.PointSim <- function(x, ...) {
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'

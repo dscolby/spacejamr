@@ -39,6 +39,15 @@ the distance between all pairs of points. Finally, it uses a spatial
 interaction function to calculate that any two point share a tie. If the
 threshold is exceeded, a tie is created.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
+power_law <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+                    power = -2.4)
+
+}
 \references{
 Butts, Carter T. Spatial models of large-scale interpersonal
 networks. Dissertation. (2002).

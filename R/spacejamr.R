@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/31/2021
+# Date: 9/6/2021
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------
@@ -16,7 +16,7 @@
 #' @param path the path to a shapefile as a string.
 #'
 #' @return A list containing a window object of class "owin" and the crs.
-#' @Author Darren Colby
+#' @author Darren Colby
 #' Email: dscolby17@gmail.com
 #' @noRd
 validate_spacejamr <- function(path) {
@@ -52,7 +52,7 @@ validate_spacejamr <- function(path) {
 #' 'owin' that stores geographical boundaries. crs: integer value referring to
 #' the coordinate reference system of the geographical boundaries.
 #'
-#' @Author Darren Colby
+#' @author Darren Colby
 #' Email: dscolby17@gmail.com
 #' @noRd
 new_spacejamr <- function(path) {
@@ -90,9 +90,7 @@ new_spacejamr <- function(path) {
 #' 'owin' that stores geographical boundaries. crs: integer value referring to
 #' the coordinate reference system of the geographical boundaries.
 #'
-#' @example \donttest{
-#' ri <- as.spacejamr("ri.shp")
-#' }
+#' @examples \donttest{ri <- as.spacejamr("ri.shp")}
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby@@gmail.com
@@ -124,7 +122,7 @@ as.spacejamr <- function(path) {
 #'
 #' @return A plot of classes 'gg' and 'ggplot'
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -161,7 +159,7 @@ plot.spacejamr <- function(x, y, ..., title = "Spatial Window", fill = "blue") {
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -190,7 +188,7 @@ print.spacejamr <- function(x, ...) {
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'

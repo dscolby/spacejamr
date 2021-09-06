@@ -18,6 +18,14 @@ No return value, called for side effects
 Print method for both the PointProcess and HaltonSeq classes,
 which inherit methods from the PointSim class.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
+print(ri_points)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

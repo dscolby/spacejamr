@@ -18,6 +18,14 @@ No return value, called for side effects
 Prints a summary of information from either a PointProcess or
 HaltonSeq object, whcih are both child classes of the PointSim class.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
+summary(ri_points)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

@@ -41,6 +41,16 @@ input, both of which are chidren of the NetSim class.
 This method returns a ggraph object, which can be further refined
 using standard ggraph and ggplot facilities.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
+spl_points <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
+                     power = -2.4)
+plot(spl_points)
+
+}
 \seealso{
 \code{\link[ggraph:ggraph]{ggraph::ggraph()}}
 }

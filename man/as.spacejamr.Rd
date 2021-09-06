@@ -27,6 +27,10 @@ geographical boundary to that system. Therefore, this function may take
 some time to run but is necessary for later steps to simulate a spatial
 Bernoulli network.
 }
+\examples{
+\donttest{ri <- as.spacejamr("ri.shp")}
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby@gmail.com

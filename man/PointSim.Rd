@@ -26,6 +26,14 @@ coordinates of the simulated points. markformat: an empty place holder.
 \description{
 Creates a new Poisson Point Process in a spacejamr object
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+# Poisson process
+ri_points <- PointSim(points = 10, window = RI, seed = 42)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

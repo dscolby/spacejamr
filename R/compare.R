@@ -1,9 +1,9 @@
 # Author: Darren Colby
-# Date: 8/27/2021
+# Date: 9/6/2021
 # Purpose: Provide a function to compare two simulated networks
 
 
-#' COmpare statistics from two simulated networks
+#' Compare statistics from two simulated networks
 #'
 #' @description Generates summary statistics for two simulated networks of class
 #' NetSim.
@@ -31,7 +31,7 @@
 #' nodes in a network. Largest Component Size: The number of nodes in the
 #' largest connected component of a network.
 #'
-#' @example
+#' @examples
 #' # load data
 #' data("RI")
 #'

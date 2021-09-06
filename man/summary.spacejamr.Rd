@@ -21,6 +21,13 @@ Summary method for the spacejamr class
 Provides a wrapper for the summary.owin method in the spatstats.geom
 package.
 }
+\examples{
+# Load spacejamr object
+data("RI")
+
+summary(RI)
+
+}
 \author{
 Darren Colby \cr
 Email: dscolby17@gmail.com

@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 8/31/2021
+# Date: 9/6/2021
 # Purpose: To simulate spatial Bernoulli networks
 
 # Constructor methods to simulate a standard power law network ------------
@@ -120,7 +120,7 @@ new_NetSim <- function(point_sim, sif, base_prob, scale, threshold, power) {
 #' @return A network object of class 'NetSim' and 'igraph' that can be
 #' manipulated using the igraph' package.
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -167,7 +167,7 @@ NetSim <- function(point_sim, sif = standard, base_prob = 0.9, scale = 1,
 #'
 #' @return A plot of classes 'ggraph' 'gg' and 'ggplot'
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
@@ -207,7 +207,7 @@ plot.NetSim <- function(x, y, ..., layout = "stress",
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Create spacejamr object
 #' data("RI")
 #'
@@ -236,7 +236,7 @@ print.NetSim <- function(x, ...) {
 #'
 #' @return No return value, called for side effects
 #'
-#' @example
+#' @examples
 #' # Load spacejamr object
 #' data("RI")
 #'
