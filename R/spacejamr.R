@@ -90,7 +90,8 @@ new_spacejamr <- function(path) {
 #' 'owin' that stores geographical boundaries. crs: integer value referring to
 #' the coordinate reference system of the geographical boundaries.
 #'
-#' @examples \donttest{ri <- as.spacejamr("ri.shp")}
+#' @examples
+#' ri <- as.spacejamr(system.file("shape/ri.shp", package = "spacejamr"))
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby@@gmail.com

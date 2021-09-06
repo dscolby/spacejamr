@@ -28,7 +28,7 @@ some time to run but is necessary for later steps to simulate a spatial
 Bernoulli network.
 }
 \examples{
-\donttest{ri <- as.spacejamr("ri.shp")}
+ri <- as.spacejamr(system.file("shape/ri.shp", package = "spacejamr"))
 
 }
 \author{
