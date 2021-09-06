@@ -2,7 +2,7 @@ library(spacejamr)
 
 test_that("we can create spacejamr objects", {
 
-    path <- system.file("extdata", "ri.shp", package ="spacejamr")
+    path <- system.file("shape", "ri.shp", package ="spacejamr")
     ri <- as.spacejamr(path)
 
     # Ensures the correct class
