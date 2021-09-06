@@ -51,9 +51,6 @@ spl_points <- NetSim(ri_points, base_prob = 0.92, scale = 1, threshold = 0.5,
 plot(spl_points)
 
 }
-\seealso{
-\code{\link[=ggraph]{ggraph()}}
-}
 \author{
 Darren Colby \cr
 Email:dscolby17@gmail.com
