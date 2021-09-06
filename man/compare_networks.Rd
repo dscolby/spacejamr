@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare.R
 \name{compare_networks}
 \alias{compare_networks}
-\title{COmpare statistics from two simulated networks}
+\title{Compare statistics from two simulated networks}
 \usage{
 compare_networks(net1, net2)
 }
