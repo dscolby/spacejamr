@@ -36,13 +36,14 @@
 #' data("RI")
 #'
 #' # Simulate point process
-#' ri_points <- PointProcess(10, RI)
+#' points1 <- PointSim(10, RI)
+#' points2 <- PointSim(20, RI)
 #'
 #' # Create two networks
-#' pl <- PowerLawNetwork(ri_points) # Standard power law
-#' apl <- APLNetwork(ri_points) # Attenuated power law
+#' net1 <- NetSim(points1)
+#' net2 <- NetSim(points2)
 #'
-#' compare_networks(pl, apl)
+#' compare_networks(net1, net2)
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby17@@gmail.com
