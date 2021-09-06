@@ -12,7 +12,7 @@
 \item{...}{ignored.}
 }
 \value{
-No return value, called for sied effects
+No return value, called for side effects
 }
 \description{
 Plots a NetSim object and returns a ggraph object
