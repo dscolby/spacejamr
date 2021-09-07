@@ -1,15 +1,9 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Omitted default paths from the documentation.
+* Added examples to .Rd files.
 
-* Removed \dontrun{} tags in the documentation.
-
-* Added \value tags where they were missing in the documentation.
-
-* Created better descriptions for the \value sections in the ROxygen comments.
-
-* Added a reference in the description field of the DESCRIPTION file.
+* Removed the 'options(warn = -1)' code from unit tests.
 
 
 ## Test environments
