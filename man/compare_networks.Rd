@@ -39,7 +39,7 @@ each network.
 # load data
 data("RI")
 
-# Simulate point process
+# Simulate point processes
 points1 <- PointSim(10, RI)
 points2 <- PointSim(20, RI)
 
