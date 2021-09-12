@@ -33,8 +33,8 @@ validate_NetSim <- function(point_sim, sif, base_prob, scale, threshold, power) 
     stopifnot(methods::is(point_sim, "PointSim"))
 
     # Calculate the distance between all pairs of nodes
-    distances <- dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
-                                  column_name = c("V1", "V2")) %>%
+    distances <- suppressWarnings(dplyr::as_tibble(spatstat.geom::pairdist(point_sim),
+                                  column_name = c("V1", "V2"))) %>%
 
     # Apply the power law function
     dplyr::mutate(dplyr::across(.fns = sif, base_prob = base_prob,
