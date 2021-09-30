@@ -1,6 +1,6 @@
 Package: spacejamr
 Title: Simulate Spatial Bernoulli Networks
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: 
     person(given = "Darren",
            family = "Colby",
