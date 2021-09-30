@@ -29,6 +29,10 @@ validate_spacejamr <- function(path) {
    # Transform the shapefile to the best projected coordinate reference system
    transformed_shapefile <- sf::st_transform(shapefile, suggested_crs)
 
+   # Set the crs in the shapefile
+   transformed_shapefile <- suppressWarnings(sf::st_set_crs(shapefile,
+                                                            suggested_crs))
+
    window <- spatstat.geom::as.owin(transformed_shapefile)
 
    return_list <- list(window = window, crs = suggested_crs)
