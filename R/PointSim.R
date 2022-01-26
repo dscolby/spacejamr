@@ -16,7 +16,7 @@
 #' @param a window of class spacejamr to use as the spatial extent
 #' @param seed an optional seed
 #'
-#' @return A ppp object from the 'spatstat.core' package
+#' @return A ppp object from the 'spatstat' package
 #'
 #' @author Darren Colby
 #' Email: dscolby17@gmail.com

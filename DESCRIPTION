@@ -35,7 +35,7 @@ Imports:
     igraph,
     magrittr,
     sf,
-    spatstat.core,
+    spatstat.random,
     spatstat.geom,
     ggthemes,
     methods
