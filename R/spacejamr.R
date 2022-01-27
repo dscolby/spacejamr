@@ -116,7 +116,7 @@ new_spacejamr <- function(path, guess_crs) {
 #' the coordinate reference system of the geographical boundaries.
 #'
 #' @examples \donttest{
-#' path <- system.file("shape/ri.shp", package = "spacejamr")
+#' path <- system.file("shape", "ri.shp", package = "spacejamr")
 #' ri <- as.spacejamr(path, guess_crs = TRUE)
 #' }
 #'
