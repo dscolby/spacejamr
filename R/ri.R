@@ -1,7 +1,7 @@
 #' Geographical boundary of Rhode Island.
 #'
-#' A dataset containing Mexico's border and the coordinate reference system in
-#' which Rhode Island's border is projected.
+#' A dataset containing Rhode Island's border and the coordinate reference
+#' system in which it is projected.
 #'
 #' @format A spacejamr object with an owin window object and an integer denoting
 #' the projected coordinate reference system:
