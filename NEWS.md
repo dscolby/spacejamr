@@ -1,8 +1,16 @@
 # spacejamr 0.2
     
-    * This version sets the crs when creating using the as.spacejamr() function
-    to create a spacejamr object, ensuring the output on the screen matches the
-    actual crs.
+    * This version allows more flexibility when creating spacejamr objects. 
+    Users can decide whether to use the coordinate reference system in the 
+    shapefile or let the as.spacejamr() method find the best projected CRS.
+    
+    * From version 0.2 onwards this package no longer depends on the methods 
+    package.
+    
+    * Previous versions depended on the spatstat.core package to generate 
+    spatial point processes, however, the spatstat team moved this functionality 
+    to the new spatstat.random package. Accordingly, this package no longer 
+    depends on spatstate.core but instead depends on spatstat.random.
 
 # spacejamr 0.1.1
 
