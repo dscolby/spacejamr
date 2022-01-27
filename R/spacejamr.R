@@ -9,7 +9,7 @@
 #'
 #' @description Validates the input to the spacejamr constructor.
 #'
-#' @usage validate_spacejamr(path)
+#' @usage validate_spacejamr(path, guess_crs = TRUE)
 #'
 #' @details This function should not be called directly
 #'
@@ -61,7 +61,7 @@ validate_spacejamr <- function(path, guess_crs) {
 #'
 #' @description Create a new spacejamr object
 #'
-#' @usage new_spacejamr(path)
+#' @usage new_spacejamr(path, guess_crs = TRUE)
 #'
 #' @details This function should not be called by the user
 #'
@@ -116,13 +116,14 @@ new_spacejamr <- function(path, guess_crs) {
 #' the coordinate reference system of the geographical boundaries.
 #'
 #' @examples \donttest{
-#' ri <- as.spacejamr(system.file("shape/ri.shp", package = "spacejamr"))
+#' path <- system.file("shape/ri.shp", package = "spacejamr")
+#' ri <- as.spacejamr(path, guess_crs = TRUE)
 #' }
 #'
 #' @author Darren Colby \cr
 #' Email: dscolby@@gmail.com
 #' @export
-as.spacejamr <- function(path, guess_crs=TRUE) {
+as.spacejamr <- function(path, guess_crs = TRUE) {
 
     # Call the new_spacejamr constructor method
     spacejamr_object <- new_spacejamr(path, guess_crs)
