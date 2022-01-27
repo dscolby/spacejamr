@@ -20,7 +20,7 @@ the projected coordinate reference system:
 RI
 }
 \description{
-A dataset containing Mexico's border and the coordinate reference system in
-which RHode Island's border is projected.
+A dataset containing Rhode Island's border and the coordinate reference
+system in which it is projected.
 }
 \keyword{datasets}
