@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 9/6/2021
+# Date: 1/27/2022
 # Purpose: To simulate spatial point processes
 
 # Constructor methods for the PointSim class ------------------------------
@@ -23,7 +23,7 @@
 #' @noRd
 validate_PointSim <- function(points, window, type, seed) {
 
-   stopifnot(methods::is(window, c("spacejamr", "owin")))
+   stopifnot(class(window) == c("spacejamr", "owin"))
 
    if (!is.null(seed)) {set.seed(seed)}  # Optional seed
 
