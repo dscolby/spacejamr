@@ -23,7 +23,7 @@
 #' @noRd
 validate_PointSim <- function(points, window, type, seed) {
 
-   stopifnot(class(window) == c("spacejamr", "owin"))
+   stopifnot(inherits(RI, c("spacejamr", "owin")))
 
    if (!is.null(seed)) {set.seed(seed)}  # Optional seed
 
