@@ -95,7 +95,7 @@ new_spacejamr <- function(path, guess_crs) {
 #'
 #' @description Creates a new spacejamr object that for further analysis
 #'
-#' @usage as.spacejamr(path)
+#' @usage as.spacejamr(path, guess_crs = TRUE)
 #'
 #' @details The returned spacejamr object will contain a window object
 #' containing a geographical boundary and its coordinate reference system.

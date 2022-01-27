@@ -4,7 +4,7 @@
 \alias{as.spacejamr}
 \title{Initialize a new spacejamr object}
 \usage{
-as.spacejamr(path)
+as.spacejamr(path, guess_crs = TRUE)
 }
 \arguments{
 \item{path}{the path to a shapefile as a string.}
