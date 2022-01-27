@@ -9,7 +9,7 @@
 \arguments{
 \item{object}{a PointSim object}
 
-\item{...}{ignored.}
+\item{...}{ignored}
 }
 \value{
 No return value, called for side effects

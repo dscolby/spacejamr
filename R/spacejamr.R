@@ -15,25 +15,40 @@
 #'
 #' @param path the path to a shapefile as a string.
 #'
+#' @param guess_crs whether to try to guess the best coordinate reference system
+#' for the supplied shapefile
+#'
 #' @return A list containing a window object of class "owin" and the crs.
 #' @author Darren Colby
 #' Email: dscolby17@gmail.com
 #' @noRd
-validate_spacejamr <- function(path) {
+validate_spacejamr <- function(path, guess_crs) {
 
    stopifnot(is.character(path))
 
    shapefile <- sf::read_sf(path)  # Raw shapefile
-   suggested_crs <- crsuggest::suggest_top_crs(shapefile)  # Best projected crs
 
-   # Transform the shapefile to the best projected coordinate reference system
-   transformed_shapefile <- sf::st_transform(shapefile, suggested_crs)
+   # Sets the CRS if it is not already set
+   if (guess_crs) {
 
-   # Set the crs in the shapefile
-   transformed_shapefile <- suppressWarnings(sf::st_set_crs(shapefile,
-                                                            suggested_crs))
+      # Best projected crs
+      suggested_crs <- crsuggest::suggest_top_crs(shapefile)
 
-   window <- spatstat.geom::as.owin(transformed_shapefile)
+      # Transform shapefile to the best projected coordinate reference system
+      transformed_shapefile <- sf::st_transform(shapefile, suggested_crs)
+
+      # Set the crs in the shapefile
+      transformed_shapefile <- suppressWarnings(sf::st_set_crs(shapefile,
+                                                               suggested_crs))
+
+      window <- spatstat.geom::as.owin(transformed_shapefile)
+
+   } else { # Case when the CRS is already set
+
+      window <- spatstat.geom::as.owin(window)
+
+   }
+
 
    return_list <- list(window = window, crs = suggested_crs)
 
@@ -52,6 +67,9 @@ validate_spacejamr <- function(path) {
 #'
 #' @param path the path to a shapefile as a string.
 #'
+#' @param gues_crs whether to try to guess the coordinate reference system of
+#' the supplied shapefile
+#'
 #' @return a spacejamr object containing two items. window: object of class
 #' 'owin' that stores geographical boundaries. crs: integer value referring to
 #' the coordinate reference system of the geographical boundaries.
@@ -59,10 +77,10 @@ validate_spacejamr <- function(path) {
 #' @author Darren Colby
 #' Email: dscolby17@gmail.com
 #' @noRd
-new_spacejamr <- function(path) {
+new_spacejamr <- function(path, guess_crs) {
 
    # Validate the input
-   validated_shapefile <- validate_spacejamr(path)
+   validated_shapefile <- validate_spacejamr(path, guess_crs)
 
    # Set the class
    spacejamr_object <- structure(validated_shapefile,
@@ -81,14 +99,17 @@ new_spacejamr <- function(path) {
 #'
 #' @details The returned spacejamr object will contain a window object
 #' containing a geographical boundary and its coordinate reference system.
-#' Since simulating a spatial point process or sequnce requires a projected
-#' coordinate reference system, this method will automatically look for the
-#' most appropriate projected coordinate reference system and project the
-#' geographical boundary to that system. Therefore, this function may take
-#' some time to run but is necessary for later steps to simulate a spatial
-#' Bernoulli network.
+#' Since any simulated point process will be simulated in two dimensions, the
+#' coordinate reference system of the supplied shapefile should be a projected
+#' coordinate reference system or 'guess_crs' should be set to TRUE. In that
+#' case, the coordinate reference system will be set to the most appropriate
+#' coordinate reference system for the shapefile. Note that guessing the
+#' coordinate reference system will take longer than if one is already set.
 #'
 #' @param path the path to a shapefile as a string.
+#'
+#' @param guess_crs whether to try to guess the coordinate reference system of
+#' the supplied shapefile
 #'
 #' @return a spacejamr object containing two items. window: object of class
 #' 'owin' that stores geographical boundaries. crs: integer value referring to
@@ -101,10 +122,10 @@ new_spacejamr <- function(path) {
 #' @author Darren Colby \cr
 #' Email: dscolby@@gmail.com
 #' @export
-as.spacejamr <- function(path) {
+as.spacejamr <- function(path, guess_crs=TRUE) {
 
     # Call the new_spacejamr constructor method
-    spacejamr_object <- new_spacejamr(path)
+    spacejamr_object <- new_spacejamr(path, guess_crs)
 
     return(spacejamr_object)
 

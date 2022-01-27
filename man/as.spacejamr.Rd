@@ -8,6 +8,9 @@ as.spacejamr(path)
 }
 \arguments{
 \item{path}{the path to a shapefile as a string.}
+
+\item{guess_crs}{whether to try to guess the coordinate reference system of
+the supplied shapefile}
 }
 \value{
 a spacejamr object containing two items. window: object of class
@@ -20,12 +23,12 @@ Creates a new spacejamr object that for further analysis
 \details{
 The returned spacejamr object will contain a window object
 containing a geographical boundary and its coordinate reference system.
-Since simulating a spatial point process or sequnce requires a projected
-coordinate reference system, this method will automatically look for the
-most appropriate projected coordinate reference system and project the
-geographical boundary to that system. Therefore, this function may take
-some time to run but is necessary for later steps to simulate a spatial
-Bernoulli network.
+Since any simulated point process will be simulated in two dimensions, the
+coordinate reference system of the supplied shapefile should be a projected
+coordinate reference system or 'guess_crs' should be set to TRUE. In that
+case, the coordinate reference system will be set to the most appropriate
+coordinate reference system for the shapefile. Note that guessing the
+coordinate reference system will take longer than if one is already set.
 }
 \examples{
 \donttest{

@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{an object of class PointSim or one of its child classes}
 
-\item{y}{ignored.}
+\item{y}{ignored}
 
 \item{...}{ignored}
 
