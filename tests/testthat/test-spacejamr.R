@@ -2,6 +2,8 @@ library(spacejamr)
 
 skip_on_os("solaris")
 
+skip_on_appveyor()
+
 test_that("we can create spacejamr objects", {
 
     path <- system.file("shape", "ri.shp", package = "spacejamr")
