@@ -10,7 +10,7 @@ test_that("we can compare summary statistics of two networks", {
 
     # Ensure the output is the correct class
     expect_equal(class(suppressWarnings(compare_networks(pl, apl))),
-                 "data.frame")
+                 c("tbl_df", "tbl", "data.frame"))
 
     # Ensure the returned dataframe has the correct number of dimensions
     expect_equal(dim(suppressWarnings(compare_networks(pl, apl))), c(2, 5))
