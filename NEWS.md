@@ -2,7 +2,8 @@
     
     * This version allows more flexibility when creating spacejamr objects. 
     Users can decide whether to use the coordinate reference system in the 
-    shapefile or let the as.spacejamr() method find the best projected CRS.
+    supplied shapefile or let the as.spacejamr() method find the best projected 
+    CRS.
     
     * From version 0.2 onwards this package no longer depends on the methods 
     package.
