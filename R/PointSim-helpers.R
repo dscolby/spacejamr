@@ -17,7 +17,7 @@
 #' @param n the number of points to simulate
 #' @param win a window of class spacejamr to use as the spatial extent
 #'
-#' @return A ppp object from the 'spatstat.core' package that contains
+#' @return A ppp object from the 'spatstat' package that contains
 #' simulated points
 #'
 #' @author Darren Colby
@@ -26,7 +26,7 @@
 poisson_process <- function(n, win) {
 
     # Homogeneous point process
-    point_process <- spatstat.core::rpoint(n = n, win = win)
+    point_process <- spatstat.random::rpoint(n = n, win = win)
 
     return(point_process)
 
