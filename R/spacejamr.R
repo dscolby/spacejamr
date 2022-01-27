@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 9/6/2021
+# Date: 1/27/2022
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------

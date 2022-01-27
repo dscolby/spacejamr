@@ -116,7 +116,7 @@ PointSim <- function(points, window, type = poisson_process, seed = NULL) {
 #' @details The returned plot can be refined with standard ggplot2 functions
 #'
 #' @param x an object of class PointSim or one of its child classes
-#' @param y ignored.
+#' @param y ignored
 #' @param ... ignored
 #' @param title an optional title. Default is "Simulated Points".
 #' @param color an optional color for the simulated points. Default is red.
@@ -188,7 +188,7 @@ print.PointSim <- function(x, ...) {
 #' HaltonSeq object, whcih are both child classes of the PointSim class.
 #'
 #' @param object a PointSim object
-#' @param ... ignored.
+#' @param ... ignored
 #'
 #' @return No return value, called for side effects
 #'
