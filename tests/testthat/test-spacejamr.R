@@ -1,6 +1,7 @@
 library(spacejamr)
 
 skip_on_os("solaris")
+skip_on_travis()
 
 test_that("we can create spacejamr objects", {
 
