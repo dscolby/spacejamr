@@ -5,7 +5,7 @@ skip_on_os("solaris")
 test_that("we can create spacejamr objects", {
 
     path <- system.file("shape", "ri.shp", package = "spacejamr")
-    ri <- as.spacejamr(path)
+    ri <- as.spacejamr(path, guess_crs = FALSE)
 
     # Ensures the correct class
     expect_identical(class(ri), c("spacejamr", "owin"))
