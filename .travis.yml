@@ -2,3 +2,6 @@
 
 language: R
 cache: packages
+
+before_install:
+    sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
