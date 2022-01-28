@@ -3,5 +3,10 @@
 language: R
 cache: packages
 
+jobs:
+    allow_failures:
+        R: 4.0.2
+
 before_install:
     sudo apt-get install libgdal-dev libproj-dev libgeos-dev libudunits2-dev netcdf-bin
+
