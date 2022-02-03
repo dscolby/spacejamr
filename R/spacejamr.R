@@ -1,5 +1,5 @@
 # Author: Darren Colby
-# Date: 1/27/2022
+# Date: 2/3/2022
 # Purpose: To create a basic class and methods for "spacejamr" objects
 
 # Constructor methods -----------------------------------------------------
@@ -31,19 +31,26 @@ validate_spacejamr <- function(path, guess_crs) {
    # Sets the CRS if it is not already set
    if (guess_crs) {
 
-      # Best projected crs
-      suggested_crs <- crsuggest::suggest_top_crs(shapefile)
+      # In case an appropriate CRS is not found
+      try({
 
-      # Transform shapefile to the best projected coordinate reference system
-      transformed_shapefile <- sf::st_transform(shapefile, suggested_crs)
+         # Best projected crs
+         suggested_crs <- crsuggest::suggest_top_crs(shapefile)
 
-      # Set the crs in the shapefile
-      transformed_shapefile <- suppressWarnings(sf::st_set_crs(shapefile,
-                                                               suggested_crs))
+         # Transform shapefile to the best projected coordinate reference system
+         transformed_shapefile <- sf::st_transform(shapefile, suggested_crs)
 
-      window <- spatstat.geom::as.owin(transformed_shapefile)
+         # Set the crs in the shapefile
+         transformed_shapefile <- suppressWarnings(sf::st_set_crs(shapefile,
+                                                                  suggested_crs))
 
-   } else { # Case when the CRS is already set
+         window <- spatstat.geom::as.owin(transformed_shapefile)
+
+      })
+
+
+
+   } else { # Case when the CRS is already set or appropriate CRS is not found
 
       window <- spatstat.geom::as.owin(window)
 

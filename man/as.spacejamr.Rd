@@ -32,8 +32,7 @@ coordinate reference system will take longer than if one is already set.
 }
 \examples{
 \donttest{
-path <- system.file("shape", "ri.shp", package = "spacejamr")
-ri <- as.spacejamr(path, guess_crs = TRUE)
+ri <- as.spacejamr(system.file("shape/ri.shp", package = "spacejamr"))
 }
 
 }
