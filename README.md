@@ -3,7 +3,6 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/dscolby/spacejamr/workflows/R-CMD-check/badge.svg)](https://github.com/dscolby/spacejamr/actions)
-[![Codecov test coverage](https://app.codecov.io/gh/dscolby/spacejamr?branch=master)
 [![test-coverage](https://github.com/dscolby/spacejamr/workflows/test-coverage/badge.svg)](https://github.com/dscolby/spacejamr/actions)
 <!-- badges: end -->
 
