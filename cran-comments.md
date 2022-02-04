@@ -1,3 +1,9 @@
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+    * Updated the codecov URL in the readme file.
+
 ## Test environments
 
     * local R installation, R 4.1.2

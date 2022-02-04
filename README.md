@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/dscolby/spacejamr/workflows/R-CMD-check/badge.svg)](https://github.com/dscolby/spacejamr/actions)
-[![Codecov test coverage](https://codecov.io/gh/dscolby/spacejamr/branch/master/graph/badge.svg)](https://codecov.io/gh/dscolby/spacejamr?branch=master)
+[![Codecov test coverage](https://app.codecov.io/gh/dscolby/spacejamr?branch=master)
 <!-- badges: end -->
 
 The goal of spacejamr is to enable social network analysis where conventional
