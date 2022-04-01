@@ -11,7 +11,7 @@ test_that("we can simulate networks from a PointSim object", {
     expect_identical(class(pl), c("NetSim", "igraph"))
 
     # Ensures the correct length
-    expect_equal(length(pl), 10)
+    expect_equal(igraph::vcount(pl), 5)
 
 })
 
