@@ -1,3 +1,7 @@
+# spacejamr 0.2.1
+
+    * This version fixed a bug that would cause one of the unit tests to fail.
+
 # spacejamr 0.2
     
     * This version allows more flexibility when creating spacejamr objects. 
